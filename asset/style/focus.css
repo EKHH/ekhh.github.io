@@ -1,0 +1,91 @@
+:focus {
+    outline: none;
+}
+
+.focus-effect {
+    margin: 0;
+    border: 0;
+}
+
+.focus-effect~.focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    border-bottom: 0;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    box-sizing: border-box;
+    background: linear-gradient(270deg, #ff00ee, #00deff);
+    background-size: 600% 600%;
+    -webkit-animation: bottombar 39s ease infinite;
+    -moz-animation: bottombar 39s ease infinite;
+    -o-animation: bottombar 39s ease infinite;
+    animation: bottombar 39s ease infinite
+}
+
+.focus-effect:focus~.focus-border {
+    width: 100%;
+    transition: 0.4s;
+    border-bottom: 0;
+    left: 0
+}
+
+@-webkit-keyframes bottombar {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes bottombar {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-o-keyframes bottombar {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes bottombar {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}

@@ -1,0 +1,46 @@
+.primary-container {
+    writing-mode: horizontal-tb !important;
+    text-align: center;
+    padding: 0;
+    width: 50%;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 25%;
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+textarea[type="text"] {
+    margin: 0;
+    position: relative;
+    resize: none;
+    overflow: hidden;
+    font-size: 200%;
+    width: 100%;
+    font-family: 'Fira Code', monospace;
+    color: #333333;
+    box-sizing: border-box;
+    text-align: center;
+    letter-spacing: 1px;
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    border: none;
+    outline: none
+}
+
+::-moz-selection {
+    color: #ffffff;
+    background-color: #333333
+}
+
+::selection {
+    color: #ffffff;
+    background-color: #333333
+}

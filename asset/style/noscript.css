@@ -1,0 +1,10 @@
+.primary-container {
+    display: none;
+    visibility: hidden
+}
+
+.isFade {
+    animation: 0s !important;
+    animation-iteration-count: 0 !important;
+    animation-fill-mode: none !important;
+}

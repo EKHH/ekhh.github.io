@@ -1,0 +1,54 @@
+textarea[type="text"]::-webkit-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+textarea[type="text"]::-ms-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus::-ms-input-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]::-moz-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus::-moz-input-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]:-moz-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus:-moz-input-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]::placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus::placeholder {
+    opacity: 0
+}
