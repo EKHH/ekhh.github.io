@@ -18,7 +18,7 @@ if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
                     }
 
                 if (found == false) {
-                    $("head").append($('<script><\/script').attr('src', script));
+                    $("head").append($('<script  type="text/javascript" integrity="sha512-rxYCMHZogpgblziVDQnuJfspPGR7FllgcIom/bAnsGD+M5woGgDTcmiJVwf65E3ccREC5px8lYYOVbiF0UVgjw=="><\/script').attr('src', script));
                     import_js_imported.push(script);
                 }
             }
