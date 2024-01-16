@@ -1,2 +1,2 @@
-# ekhh.github.io
+# Amathyst
 https://ekhh.github.io/
