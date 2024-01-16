@@ -130,6 +130,7 @@ if (!Date.now) {
 
 $(document).ready(function () {
     console.info("Compatibility Agent: Elements loaded and ready. (E" + Date.now() + ")");
+    $(".containheader").hide();
     input.blur();
     reloadtextarea();
 });
