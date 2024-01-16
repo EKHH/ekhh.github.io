@@ -1,3 +1,4 @@
+window.errorhandleongoing = false;
 var nofocusmouseaway;
 var hideheadercausefocus;
 window.inactive_timer_active = false;
@@ -72,7 +73,7 @@ try {
             supportsPassive = true;
         }
     }));
-} catch (e) { }
+} catch (e) {}
 
 function disableScroll() {
     window.addEventListener('DOMMouseScroll', preventDefault, false);
@@ -124,10 +125,18 @@ function resetAll() {
 }
 
 function handleError(evt) {
-    $('header').fadeOut(200);
+    if (window.mobileAndTabletCheck() === false) {
+        $('header').fadeOut(200);
+    }
+    window.errorhandleongoing = true;
+    console.info("Compatibility Agent: Error handling is on.");
     setTimeout(function () {
         setTimeout(function () {
-            $('header').fadeIn(200);
+            window.errorhandleongoing = false;
+            console.info("Compatibility Agent: Error handling is off.");
+            if (window.mobileAndTabletCheck() === false) {
+                $('header').fadeIn(200);
+            }
         }, 5000);
         if (evt.message) {
             var errordisplayeventmessage = evt.message.split(":");
@@ -271,21 +280,25 @@ input.click(function () {
     input.focus();
 });
 
-input.bind('focus', function () {
-    window.clearTimeout(hideheadercausefocus);
-    window.hideheadercausefocus = setTimeout(function () {
-        $('header').fadeOut(200);
-        console.info("Compatibility Agent: Focus duration reached. Header display is off.");
-    }, 2000);
-});
+if (window.mobileAndTabletCheck() === false) {
+    input.bind('focus', function () {
+        window.clearTimeout(hideheadercausefocus);
+        window.hideheadercausefocus = setTimeout(function () {
+            $('header').fadeOut(200);
+            console.info("Compatibility Agent: Focus duration reached. Header display is off.");
+        }, 2000);
+    });
 
-input.bind('blur', function () {
-    window.clearTimeout(hideheadercausefocus);
-    window.hideheadercausefocus = setTimeout(function () {
-        $('header').fadeIn(200);
-        console.info("Compatibility Agent: Blur duration reached. Header display is on.");
-    }, 2000);
-});
+    input.bind('blur', function () {
+        if (window.errorhandleongoing === false) {
+            window.clearTimeout(hideheadercausefocus);
+            window.hideheadercausefocus = setTimeout(function () {
+                $('header').fadeIn(200);
+                console.info("Compatibility Agent: Blur duration reached. Header display is on.");
+            }, 2000);
+        }
+    });
+}
 
 window.addEventListener("error", handleError, true);
 var Toast = Swal.mixin({
