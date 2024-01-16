@@ -13,17 +13,34 @@ body::-webkit-scrollbar {
     width: 0px;
 }
 
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bg: #ffffff;
+        --color-fg: #333333;
+        --color-cr: #808080
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #333333;
+        --color-fg: #ffffff;
+        --color-cr: #ffffff
+    }
+}
+
 body {
     scrollbar-width: none;
     -ms-overflow-style: none;
     font-family: 'Fira Code', monospace;
-    color: #000000;
+    color: var(--color-fg);
+    background-color: var(--color-bg);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    caret-color: #808080
+    caret-color: var(--color-cr);
 }
 
 .isFade {

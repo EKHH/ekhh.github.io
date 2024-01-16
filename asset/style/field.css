@@ -22,7 +22,8 @@ textarea[type="text"] {
     font-size: 200%;
     width: 100%;
     font-family: 'Fira Code', monospace;
-    color: #333333;
+    color: var(--color-fg);
+    background-color: transparent;
     box-sizing: border-box;
     text-align: center;
     letter-spacing: 1px;
@@ -36,11 +37,11 @@ textarea[type="text"] {
 }
 
 ::-moz-selection {
-    color: #ffffff;
-    background-color: #333333
+    color: var(--color-bg);
+    background-color: var(--color-fg);
 }
 
 ::selection {
-    color: #ffffff;
-    background-color: #333333
+    color: var(--color-bg);
+    background-color: var(--color-fg);
 }
