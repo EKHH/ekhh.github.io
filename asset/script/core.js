@@ -153,6 +153,7 @@ $(document).ready(function () {
         $("textarea").css({
             "font-size": "100%"
         });
+        $(".containheader").hide();
         console.info("Compatibility Agent: Font size changed to match the device type.");
         $(".isFade").removeClass("isFade");
         console.warn("Compatibility Agent: Container animation is disabled.");
@@ -160,7 +161,7 @@ $(document).ready(function () {
             $('.primary-container').hide();
             Swal.fire({
                 title: "Warning",
-                text: "Your device may not be compatible.",
+                text: "Your device is not compatible. Some features may be unavailable.",
                 icon: "warning",
                 showCancelButton: false,
                 allowOutsideClick: false,

@@ -8,3 +8,8 @@
     animation-iteration-count: 0 !important;
     animation-fill-mode: none !important;
 }
+
+header {
+    display: none;
+    visibility: hidden
+}
