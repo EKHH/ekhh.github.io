@@ -1,5 +1,7 @@
 var nofocusmouseaway;
+var hideheadercausefocus;
 window.inactive_timer_active = false;
+window.header_hide_timer_active = false;
 var input = $('textarea[type="text"]');
 var container = $('.primary-container');
 var keysscroll = {
@@ -70,7 +72,7 @@ try {
             supportsPassive = true;
         }
     }));
-} catch (e) {}
+} catch (e) { }
 
 function disableScroll() {
     window.addEventListener('DOMMouseScroll', preventDefault, false);
@@ -122,22 +124,28 @@ function resetAll() {
 }
 
 function handleError(evt) {
-    if (evt.message) {
-        var errordisplayeventmessage = evt.message.split(":");
-        errordisplayeventmessage.shift();
-        errordisplayeventmessage = errordisplayeventmessage.join(":");
-        Toast.fire({
-            icon: "warning",
-            title: "ERROR",
-            text: errordisplayeventmessage
-        });
-    } else {
-        Toast.fire({
-            icon: "error",
-            title: evt.type,
-            text: (evt.srcElement || evt.target)
-        });
-    }
+    $('header').fadeOut(200);
+    setTimeout(function () {
+        setTimeout(function () {
+            $('header').fadeIn(200);
+        }, 5000);
+        if (evt.message) {
+            var errordisplayeventmessage = evt.message.split(":");
+            errordisplayeventmessage.shift();
+            errordisplayeventmessage = errordisplayeventmessage.join(":");
+            Toast.fire({
+                icon: "warning",
+                title: "ERROR",
+                text: errordisplayeventmessage
+            });
+        } else {
+            Toast.fire({
+                icon: "error",
+                title: evt.type,
+                text: (evt.srcElement || evt.target)
+            });
+        }
+    }, 150);
 }
 
 if (!Date.now) {
@@ -239,10 +247,13 @@ window.addEventListener('resize', function (event) {
 
 input.on({
     mouseenter: function () {
-        window.clearTimeout(nofocusmouseaway);
-        console.info("Compatibility Agent: Hover detected. Inactive timer cleared.");
-        input.focus();
-        console.info("Interaction Handler: Hover detected. Input focused.");
+        if (window.inactive_timer_active) {
+            window.clearTimeout(nofocusmouseaway);
+            console.info("Compatibility Agent: Hover detected. Inactive timer cleared.");
+            window.inactive_timer_active = false;
+            input.focus();
+            console.info("Interaction Handler: Hover detected. Input focused.");
+        }
     },
     mouseleave: function () {
         window.inactive_timer_active = true;
@@ -258,6 +269,22 @@ input.click(function () {
     window.clearTimeout(nofocusmouseaway);
     console.info("Compatibility Agent: Click detected. Inactive timer cleared.");
     input.focus();
+});
+
+input.bind('focus', function () {
+    window.clearTimeout(hideheadercausefocus);
+    window.hideheadercausefocus = setTimeout(function () {
+        $('header').fadeOut(200);
+        console.info("Compatibility Agent: Focus duration reached. Header display is off.");
+    }, 2000);
+});
+
+input.bind('blur', function () {
+    window.clearTimeout(hideheadercausefocus);
+    window.hideheadercausefocus = setTimeout(function () {
+        $('header').fadeIn(200);
+        console.info("Compatibility Agent: Blur duration reached. Header display is on.");
+    }, 2000);
 });
 
 window.addEventListener("error", handleError, true);
