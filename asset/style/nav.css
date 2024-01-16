@@ -4,17 +4,19 @@
 
 a {
     text-decoration: none;
+    color: #333333;
     color: var(--color-fg);
 }
 
 .site-header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cccccc;
     padding: .5em 1em;
     display: flex;
     justify-content: space-between;
 }
 
 .site-identity h1 {
+    color: #333333;
     color: var(--color-fg);
     font-size: 1.5em;
     margin: .6em 0;

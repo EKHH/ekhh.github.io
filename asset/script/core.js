@@ -308,3 +308,13 @@ var Toast = Swal.mixin({
     timer: 5000,
     timerProgressBar: false
 });
+
+function darkmodeon() {
+    $('body').animate({
+        backgroundColor: '#333333'
+    }, 'slow');
+    $(':root').css("--color-bg", "#333333");
+    $(':root').css("--color-fg", "#ffffff");
+    $(':root').css("--color-cr", "#cccccc");
+    console.info("Compatibility Agent: Dark Mode is on.");
+}

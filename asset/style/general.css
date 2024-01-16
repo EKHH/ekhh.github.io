@@ -13,11 +13,19 @@ body::-webkit-scrollbar {
     width: 0px;
 }
 
+@media (prefers-color-scheme: no-preference) {
+    :root {
+        --color-bg: #ffffff;
+        --color-fg: #333333;
+        --color-cr: #808080;
+    }
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         --color-bg: #ffffff;
         --color-fg: #333333;
-        --color-cr: #808080
+        --color-cr: #808080;
     }
 }
 
@@ -25,7 +33,15 @@ body::-webkit-scrollbar {
     :root {
         --color-bg: #333333;
         --color-fg: #ffffff;
-        --color-cr: #ffffff
+        --color-cr: #cccccc;
+    }
+}
+
+@media (prefers-dark-interface) {
+    :root {
+        --color-bg: #333333;
+        --color-fg: #ffffff;
+        --color-cr: #cccccc;
     }
 }
 
@@ -33,6 +49,8 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
     font-family: 'Fira Code', monospace;
+    color: #333333;
+    background-color: #ffffff;
     color: var(--color-fg);
     background-color: var(--color-bg);
     -webkit-touch-callout: none;
@@ -41,6 +59,16 @@ body {
     -ms-user-select: none;
     user-select: none;
     caret-color: var(--color-cr);
+    -webkit-transition: background-color 300ms linear, color 1s linear;
+    -moz-transition: background-color 300ms linear, color 1s linear;
+    -o-transition: background-color 300ms linear, color 1s linear;
+    -ms-transition: background-color 300ms linear, color 1s linear;
+    transition: background-color 300ms linear, color 1s linear;
+    -webkit-transition: color 300ms linear, color 1s linear;
+    -moz-transition: color 300ms linear, color 1s linear;
+    -o-transition: color 300ms linear, color 1s linear;
+    -ms-transition: color 300ms linear, color 1s linear;
+    transition: color 300ms linear, color 1s linear;
 }
 
 .isFade {
