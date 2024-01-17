@@ -59,22 +59,17 @@ body {
     -ms-user-select: none;
     user-select: none;
     caret-color: var(--color-cr);
-    -webkit-transition: background-color 300ms linear, color 1s linear;
-    -moz-transition: background-color 300ms linear, color 1s linear;
-    -o-transition: background-color 300ms linear, color 1s linear;
-    -ms-transition: background-color 300ms linear, color 1s linear;
-    transition: background-color 300ms linear, color 1s linear;
-    -webkit-transition: color 300ms linear, color 1s linear;
-    -moz-transition: color 300ms linear, color 1s linear;
-    -o-transition: color 300ms linear, color 1s linear;
-    -ms-transition: color 300ms linear, color 1s linear;
-    transition: color 300ms linear, color 1s linear;
 }
 
 .isFade {
     animation: fadeInStartup ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    -webkit-transition: background-color 300ms linear, color 1s linear;
+    -moz-transition: background-color 300ms linear, color 1s linear;
+    -o-transition: background-color 300ms linear, color 1s linear;
+    -ms-transition: background-color 300ms linear, color 1s linear;
+    transition: background-color 300ms linear, color 1s linear;
 }
 
 @keyframes fadeInStartup {

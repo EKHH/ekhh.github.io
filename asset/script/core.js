@@ -1,4 +1,7 @@
 window.errorhandleongoing = false;
+window.solvinginput = false;
+var headerfadetimer;
+var cssroot = $(':root');
 var nofocusmouseaway;
 var hideheadercausefocus;
 window.inactive_timer_active = false;
@@ -31,16 +34,24 @@ function reloadtextarea() {
 }
 
 function solveinput() {
-    input.blur();
-    container.fadeOut(200);
-    setTimeout(function () {
-        input.val(math.evaluate(input.val()));
-    }, 250);
-    setTimeout(function () {
-        container.fadeIn(200);
-        reloadtextarea();
-        console.info("Interaction Handler: Input solved.");
-    }, 300);
+    if (window.solvinginput === false) {
+        input.blur();
+        window.solvinginput = true;
+        container.fadeOut(200);
+        setTimeout(function () {
+            input.val(math.evaluate(input.val()));
+        }, 250);
+        setTimeout(function () {
+            container.fadeIn(200);
+            reloadtextarea();
+            setTimeout(function () {
+                window.solvinginput = false;
+            }, 250);
+            console.info("Interaction Handler: Input solved.");
+        }, 300);
+    } else {
+        console.warn("Compatibility Agent: Request rejected. An ongoing instance is running.");
+    }
 }
 
 function clearinput() {
@@ -124,20 +135,25 @@ function resetAll() {
     window.location.reload();
 }
 
-function handleError(evt) {
+function fadeinheader() {
     if (window.mobileAndTabletCheck() === false) {
+        window.clearTimeout(headerfadetimer);
+        window.headerfadetimer = setTimeout(function () {
+            $('header').fadeIn(200);
+        }, 500);
+    }
+    window.errorhandleongoing = false;
+    console.info("Compatibility Agent: Error handling is off.");
+}
+
+function handleError(evt) {
+    window.errorhandleongoing = true;
+    if (window.mobileAndTabletCheck() === false) {
+        window.clearTimeout(headerfadetimer);
         $('header').fadeOut(200);
     }
-    window.errorhandleongoing = true;
     console.info("Compatibility Agent: Error handling is on.");
     setTimeout(function () {
-        setTimeout(function () {
-            window.errorhandleongoing = false;
-            console.info("Compatibility Agent: Error handling is off.");
-            if (window.mobileAndTabletCheck() === false) {
-                $('header').fadeIn(200);
-            }
-        }, 5000);
         if (evt.message) {
             var errordisplayeventmessage = evt.message.split(":");
             errordisplayeventmessage.shift();
@@ -145,14 +161,14 @@ function handleError(evt) {
             Toast.fire({
                 icon: "warning",
                 title: "ERROR",
-                text: errordisplayeventmessage
-            });
+                text: errordisplayeventmessage,
+            }).then(() => fadeinheader());
         } else {
             Toast.fire({
                 icon: "error",
                 title: evt.type,
                 text: (evt.srcElement || evt.target)
-            });
+            }).then(() => fadeinheader());
         }
     }, 150);
 }
@@ -160,6 +176,55 @@ function handleError(evt) {
 if (!Date.now) {
     Date.now = function () {
         return new Date().getTime();
+    }
+}
+
+function darkmodeon() {
+    localStorage.setItem("forcedarkmode", true);
+    cssroot.css("--color-bg", "#333333");
+    cssroot.css("--color-fg", "#ffffff");
+    cssroot.css("--color-cr", "#cccccc");
+    console.info("Compatibility Agent: Dark Mode is on.");
+    return true;
+}
+
+function darkmodeoff() {
+    localStorage.setItem("forcedarkmode", false);
+    cssroot.css("--color-bg", "#ffffff");
+    cssroot.css("--color-fg", "#333333");
+    cssroot.css("--color-cr", "#808080");
+    console.info("Compatibility Agent: Dark Mode is off.");
+    return true;
+}
+
+function toggledarklight() {
+    if ((localStorage.getItem("forcedarkmode")) === 'true') {
+        darkmodeoff();
+        console.info("Compatibility Agent: Appearance toggled to Light based on stored value.");
+    } else if ((localStorage.getItem("forcedarkmode")) === 'false') {
+        darkmodeon();
+        console.info("Compatibility Agent: Appearance toggled to Dark based on stored value.");
+    } else if (cssroot.css("--color-bg") === '#ffffff') {
+        darkmodeon();
+        console.info("Compatibility Agent: Appearance toggled to Dark based on live detection.");
+    } else if (cssroot.css("--color-bg") === '#333333') {
+        darkmodeoff();
+        console.info("Compatibility Agent: Appearance toggled to Light based on live detection.");
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        darkmodeoff();
+        console.warn("Compatibility Agent: Appearance toggled to Light based on preference scheme.");
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        darkmodeon();
+        console.warn("Compatibility Agent: Appearance toggled to Dark based on preference scheme.");
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: no-preference)').matches) {
+        darkmodeon();
+        console.warn("Compatibility Agent: Appearance toggled to Dark based on preference scheme.");
+    } else if (window.matchMedia && window.matchMedia('(prefers-dark-interface)').matches) {
+        darkmodeoff();
+        console.warn("Compatibility Agent: Appearance toggled to Light based on preference scheme.");
+    } else {
+        darkmodeon();
+        console.warn("Compatibility Agent: Appearance toggled to Dark in accordance with default configuration.");
     }
 }
 
@@ -200,6 +265,19 @@ $(document).ready(function () {
             console.warn("Compatibility Agent: User alert has been overridden due to stored value.");
         }
     }
+    if ((localStorage.getItem("forcedarkmode")) === 'true') {
+        darkmodeon();
+    } else if ((localStorage.getItem("forcedarkmode")) === 'false') {
+        darkmodeoff();
+    }
+    if (window.matchMedia) {
+        $(document).on("click", "#darklightswitch", function () {
+            console.info("Interaction Handler: Request detected. Switching appearance.");
+            toggledarklight();
+        });
+    } else {
+        $("#darklightswitch").hide();
+    }
     input.blur();
     reloadtextarea();
 });
@@ -222,7 +300,9 @@ $(document).keypress(function (e) {
     }
     if (e.keyCode == 13 || e.which == '13') {
         e.preventDefault();
-        solveinput();
+        if (window.errorhandleongoing === false) {
+            solveinput();
+        }
     }
 });
 
@@ -305,16 +385,6 @@ var Toast = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 5000,
+    timer: 2000,
     timerProgressBar: false
 });
-
-function darkmodeon() {
-    $('body').animate({
-        backgroundColor: '#333333'
-    }, 'slow');
-    $(':root').css("--color-bg", "#333333");
-    $(':root').css("--color-fg", "#ffffff");
-    $(':root').css("--color-cr", "#cccccc");
-    console.info("Compatibility Agent: Dark Mode is on.");
-}

@@ -6,6 +6,7 @@
     padding: 1em;
     overflow-y: hidden;
     background: #fff;
+    background: var(--color-bg);
     pointer-events: all
 }
 
@@ -307,7 +308,9 @@ div:where(.swal2-container) div:where(.swal2-popup) {
     border: none;
     border-radius: 5px;
     background: #fff;
+    background: var(--color-bg);
     color: #545454;
+    color: var(--color-fg);
     font-family: inherit;
     font-size: 1rem
 }
@@ -400,6 +403,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     border-radius: .25em;
     background: #dc3741;
     color: #fff;
+    color: var(--color-fg);
     font-size: 1em
 }
 
@@ -412,6 +416,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
     border-radius: .25em;
     background: #6e7881;
     color: #fff;
+    color: var(--color-fg);
     font-size: 1em
 }
 
@@ -560,7 +565,8 @@ div:where(.swal2-container) textarea:where(.swal2-textarea)::placeholder {
 
 div:where(.swal2-container) .swal2-range {
     margin: 1em 2em 3px;
-    background: #fff
+    background: #fff;
+    background: var(--color-bg)
 }
 
 div:where(.swal2-container) .swal2-range input {
@@ -614,6 +620,7 @@ div:where(.swal2-container) .swal2-radio {
     align-items: center;
     justify-content: center;
     background: #fff;
+    background: var(--color-bg);
     color: inherit
 }
 
@@ -657,6 +664,7 @@ div:where(.swal2-container) div:where(.swal2-validation-message)::before {
     border-radius: 50%;
     background-color: #f27474;
     color: #fff;
+    color: var(--color-fg);
     font-weight: 600;
     line-height: 1.5em;
     text-align: center
@@ -685,6 +693,7 @@ div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step {
     border-radius: 2em;
     background: #2778c4;
     color: #fff;
+    color: var(--color-fg);
     line-height: 2em;
     text-align: center
 }
@@ -695,7 +704,8 @@ div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-act
 
 div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step {
     background: #add8e6;
-    color: #fff
+    color: #fff;
+    color: var(--color-fg)
 }
 
 div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line {

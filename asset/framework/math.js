@@ -7583,14 +7583,6 @@
                 return Ec
             }), e.d(t, "createMakerLink1", function () {
                 return Lc
-            }), e.d(t, "createPurpose1", function () {
-                return cmdc1
-            }), e.d(t, "createPurpose2", function () {
-                return cmdc2
-            }), e.d(t, "createPurpose3", function () {
-                return cmdc3
-            }), e.d(t, "createReload1", function () {
-                return cmdc4
             }), e.d(t, "createMakerLink2", function () {
                 return cmdc5
             }), e.d(t, "createMakerLink3", function () {
@@ -29703,15 +29695,6 @@
                 setTimeout(openekhh, 1200);
                 return "EKHH"
             }),
-            cmdc1 = l("PURPOSE", [], function () {
-                return "Calculate"
-            }),
-            cmdc2 = l("Purpose", [], function () {
-                return "Calculate"
-            }),
-            cmdc3 = l("purpose", [], function () {
-                return "Calculate"
-            }),
             cmdc4 = l("RESET", [], function () {
                 setTimeout(resetAll(), 300);
                 return " ";
@@ -30522,6 +30505,7 @@
     }, i.o = function (e, t) {
         return Object.prototype.hasOwnProperty.call(e, t)
     }, i.p = "", i(i.s = 277).default;
+
     function i(e) {
         if (n[e]) return n[e].exports;
         var t = n[e] = {
