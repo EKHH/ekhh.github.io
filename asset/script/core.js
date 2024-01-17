@@ -139,7 +139,9 @@ function fadeinheader() {
     if (window.mobileCheck() === false) {
         window.clearTimeout(headerfadetimer);
         window.headerfadetimer = setTimeout(function () {
-            $('header').fadeIn(200);
+            if (!input.is(':focus')) {
+                $('header').fadeIn(200);
+            }
         }, 500);
     }
     window.errorhandleongoing = false;
@@ -375,7 +377,7 @@ if (window.mobileCheck() === false) {
             window.hideheadercausefocus = setTimeout(function () {
                 $('header').fadeIn(200);
                 console.info("Compatibility Agent: Blur duration reached. Header display is on.");
-            }, 2000);
+            }, 3000);
         }
     });
 }
