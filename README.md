@@ -3,10 +3,10 @@
 
 <div align="center">
   <a href="https://github.com/EKHH/ekhh.github.io">
-    <img src="design.svg" alt="Logo" width="80" height="80">
+    <img src="design.svg" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Amathyst</h3>
+  <h2 align="center">Amathyst</h3>
 
   <p align="center">
     A fast and powerful command-based calculator with minimal layout.
