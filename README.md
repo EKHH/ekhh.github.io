@@ -12,8 +12,9 @@
     A fast and powerful command-based calculator with minimal layout.
     <br />
     <br>
-  <h2><a href="https://ekhh.github.io/"><strong>Try it »</strong></a></h2>
-  <br />
+    <a href="https://ekhh.github.io/"><strong>Try it »</strong></a>
+    <br />
+    <br />
   </p>
 </div>
 
