@@ -165,10 +165,6 @@ input.click(function () {
     input.focus();
 });
 
-$(window).on("error", handleError, true);
-
-
-
 if (window.addEventListener) {
     window.addEventListener("error", handleError, true);
 }
