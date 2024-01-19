@@ -1,19 +1,8 @@
-console.warn("Compatibility Agent: Feature support for the current client may be partial or unavailable. IE-Compatibility mode is enabled.");
+console.warn("Compatibility Agent: Feature support for the current client may be partial or unavailable. Compatibility mode is enabled.");
 var nofocusmouseaway;
 window.inactive_timer_active = false;
 var input = $('textarea[type="text"]');
 var container = $('.primary-container');
-var keysscroll = {
-    37: 1,
-    38: 1,
-    39: 1,
-    40: 1
-};
-var supportsPassive = false;
-var wheelOpt = supportsPassive ? {
-    passive: false
-} : false;
-var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
 function reloadtextarea() {
     $("textarea").trigger("input");
@@ -24,7 +13,11 @@ function solveinput() {
     input.blur();
     container.fadeOut(200);
     setTimeout(function () {
-        input.val(math.evaluate(input.val()));
+        if (window.mathjsversionold === true) {
+            input.val(math.eval(input.val()));
+        } else {
+            input.val(math.evaluate(input.val()));
+        }
     }, 250);
     setTimeout(function () {
         container.fadeIn(200);
@@ -46,45 +39,9 @@ function clearinput() {
     }, 300);
 }
 
-function preventDefault(e) {
-    e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-    if (keysscroll[e.keyCode]) {
-        preventDefault(e);
-        return false;
-    }
-}
-
-try {
-    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-        get: function () {
-            supportsPassive = true;
-        }
-    }));
-} catch (e) {}
-
-function disableScroll() {
-    window.addEventListener('DOMMouseScroll', preventDefault, false);
-    window.addEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.addEventListener('touchmove', preventDefault, wheelOpt);
-    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-    console.warn("Interaction Handler: Scrolling has been temporarily disabled.");
-}
-
-function enableScroll() {
-    window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.removeEventListener('touchmove', preventDefault, wheelOpt);
-    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-    console.info("Interaction Handler: Scrolling is allowed.");
-}
-
 function resetAll() {
     console.group();
     console.warn("Interaction Handler: Full reset initiated.");
-    disableScroll();
     var theCookies = document.cookie.split(';');
     for (var i = 1; i <= theCookies.length; i++) {
         var acookie = theCookies[i - 1];
@@ -176,14 +133,14 @@ $("textarea").each(function () {
     }
 });
 
-window.addEventListener('resize', function (event) {
+$(window).on('resize', function () {
     input.blur();
     console.info("Compatibility Agent: Window resize detected. Input focus is off.");
     reloadtextarea();
     console.info(
         "Compatibility Agent: Window resize detected. Input triggered manually to reload area spacing."
     );
-}, true);
+});
 
 input.on({
     mouseenter: function () {
@@ -208,4 +165,10 @@ input.click(function () {
     input.focus();
 });
 
-window.addEventListener("error", handleError, true);
+$(window).on("error", handleError, true);
+
+
+
+if (window.addEventListener) {
+    window.addEventListener("error", handleError, true);
+}

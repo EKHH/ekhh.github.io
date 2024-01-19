@@ -390,3 +390,5 @@ var Toast = Swal.mixin({
     timer: 2000,
     timerProgressBar: false
 });
+
+window.mainsupportscriptloaded = true;

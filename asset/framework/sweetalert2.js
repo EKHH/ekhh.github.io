@@ -2,6 +2,7 @@
     "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).Sweetalert2 = e()
 }(this, (function () {
     "use strict";
+
     function t(t) {
         var e = function (t, e) {
             if ("object" != typeof t || !t) return t;
@@ -58,7 +59,7 @@
         if (Reflect.construct.sham) return !1;
         if ("function" == typeof Proxy) return !0;
         try {
-            return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () { }))), !0
+            return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {}))), !0
         } catch (t) {
             return !1
         }
@@ -68,7 +69,7 @@
         return u = c() ? Reflect.construct.bind() : function (t, e, n) {
             var o = [null];
             o.push.apply(o, e);
-            var i = new (Function.bind.apply(t, o));
+            var i = new(Function.bind.apply(t, o));
             return n && a(i, n.prototype), i
         }, u.apply(null, arguments)
     }
@@ -322,10 +323,10 @@
         },
         ot = function (t, n, o) {
             if (function (t, e) {
-                Array.from(t.classList).forEach((function (n) {
-                    Object.values(A).includes(n) || Object.values(k).includes(n) || Object.values(e.showClass || {}).includes(n) || t.classList.remove(n)
-                }))
-            }(t, n), n.customClass && n.customClass[o]) {
+                    Array.from(t.classList).forEach((function (n) {
+                        Object.values(A).includes(n) || Object.values(k).includes(n) || Object.values(e.showClass || {}).includes(n) || t.classList.remove(n)
+                    }))
+                }(t, n), n.customClass && n.customClass[o]) {
                 if ("string" != typeof n.customClass[o] && !n.customClass[o].forEach) return void B("Invalid type of customClass.".concat(o, '! Expected string or iterable object, got "').concat(e(n.customClass[o]), '"'));
                 ct(t, n.customClass[o])
             }
@@ -496,9 +497,9 @@
         }(n, e.grow), ot(n, e, "container"))
     };
     var Lt = {
-        innerParams: new WeakMap,
-        domCache: new WeakMap
-    },
+            innerParams: new WeakMap,
+            domCache: new WeakMap
+        },
         jt = ["input", "file", "range", "select", "radio", "checkbox", "textarea"],
         Mt = function (t) {
             if (t.input)
@@ -514,11 +515,11 @@
             var n = it(q(), t);
             if (n)
                 for (var o in function (t) {
-                    for (var e = 0; e < t.attributes.length; e++) {
-                        var n = t.attributes[e].name;
-                        ["id", "type", "value", "style"].includes(n) || t.removeAttribute(n)
-                    }
-                }(n), e) n.setAttribute(o, e[o])
+                        for (var e = 0; e < t.attributes.length; e++) {
+                            var n = t.attributes[e].name;
+                            ["id", "type", "value", "style"].includes(n) || t.removeAttribute(n)
+                        }
+                    }(n), e) n.setAttribute(o, e[o])
         },
         Ht = function (t) {
             var n = Vt(t.input);
@@ -580,19 +581,19 @@
         })), t
     };
     var Nt = function (t, e) {
-        var n = _();
-        n && (pt(n), ot(n, e, "htmlContainer"), e.html ? (Et(e.html, n), dt(n, "block")) : e.text ? (n.textContent = e.text, dt(n, "block")) : ft(n), function (t, e) {
-            var n = q();
-            if (n) {
-                var o = Lt.innerParams.get(t),
-                    i = !o || e.input !== o.input;
-                jt.forEach((function (t) {
-                    var o = st(n, A[t]);
-                    o && (It(t, e.inputAttributes), o.className = A[t], i && ft(o))
-                })), e.input && (i && Mt(e), Ht(e))
-            }
-        }(t, e))
-    },
+            var n = _();
+            n && (pt(n), ot(n, e, "htmlContainer"), e.html ? (Et(e.html, n), dt(n, "block")) : e.text ? (n.textContent = e.text, dt(n, "block")) : ft(n), function (t, e) {
+                var n = q();
+                if (n) {
+                    var o = Lt.innerParams.get(t),
+                        i = !o || e.input !== o.input;
+                    jt.forEach((function (t) {
+                        var o = st(n, A[t]);
+                        o && (It(t, e.inputAttributes), o.className = A[t], i && ft(o))
+                    })), e.input && (i && Mt(e), Ht(e))
+                }
+            }(t, e))
+        },
         Ft = function (t, e) {
             for (var n = 0, o = Object.entries(k); n < o.length; n++) {
                 var i = d(o[n], 2),
@@ -619,7 +620,7 @@
                         question: "?",
                         warning: "!",
                         info: "i"
-                    }[e.icon])
+                    } [e.icon])
                 }
                 n.trim() !== o.trim() && et(t, o)
             }
@@ -842,8 +843,8 @@
         Ce(this), e && e(t)
     }
     var Ce = function (t) {
-        t.isAwaitingPromise && (delete t.isAwaitingPromise, Lt.innerParams.get(t) || t._destroy())
-    },
+            t.isAwaitingPromise && (delete t.isAwaitingPromise, Lt.innerParams.get(t) || t._destroy())
+        },
         Ae = function (t) {
             return void 0 === t ? {
                 isConfirmed: !1,
@@ -942,15 +943,15 @@
             })))
         };
     var Me = function t(n) {
-        var o = [];
-        return n instanceof Map ? n.forEach((function (n, i) {
-            var r = n;
-            "object" === e(r) && (r = t(r)), o.push([i, r])
-        })) : Object.keys(n).forEach((function (i) {
-            var r = n[i];
-            "object" === e(r) && (r = t(r)), o.push([i, r])
-        })), o
-    },
+            var o = [];
+            return n instanceof Map ? n.forEach((function (n, i) {
+                var r = n;
+                "object" === e(r) && (r = t(r)), o.push([i, r])
+            })) : Object.keys(n).forEach((function (i) {
+                var r = n[i];
+                "object" === e(r) && (r = t(r)), o.push([i, r])
+            })), o
+        },
         Ie = function (t, e) {
             return !!e && e.toString() === t.toString()
         },
@@ -1084,96 +1085,96 @@
         e && (e.removeAttribute("aria-invalid"), e.removeAttribute("aria-describedby"), ut(e, A.inputerror))
     }
     var Qe = {
-        title: "",
-        titleText: "",
-        text: "",
-        html: "",
-        footer: "",
-        icon: void 0,
-        iconColor: void 0,
-        iconHtml: void 0,
-        template: void 0,
-        toast: !1,
-        animation: !0,
-        showClass: {
-            popup: "swal2-show",
-            backdrop: "swal2-backdrop-show",
-            icon: "swal2-icon-show"
+            title: "",
+            titleText: "",
+            text: "",
+            html: "",
+            footer: "",
+            icon: void 0,
+            iconColor: void 0,
+            iconHtml: void 0,
+            template: void 0,
+            toast: !1,
+            animation: !0,
+            showClass: {
+                popup: "swal2-show",
+                backdrop: "swal2-backdrop-show",
+                icon: "swal2-icon-show"
+            },
+            hideClass: {
+                popup: "swal2-hide",
+                backdrop: "swal2-backdrop-hide",
+                icon: "swal2-icon-hide"
+            },
+            customClass: {},
+            target: "body",
+            color: void 0,
+            backdrop: !0,
+            heightAuto: !0,
+            allowOutsideClick: !0,
+            allowEscapeKey: !0,
+            allowEnterKey: !0,
+            stopKeydownPropagation: !0,
+            keydownListenerCapture: !1,
+            showConfirmButton: !0,
+            showDenyButton: !1,
+            showCancelButton: !1,
+            preConfirm: void 0,
+            preDeny: void 0,
+            confirmButtonText: "OK",
+            confirmButtonAriaLabel: "",
+            confirmButtonColor: void 0,
+            denyButtonText: "No",
+            denyButtonAriaLabel: "",
+            denyButtonColor: void 0,
+            cancelButtonText: "Cancel",
+            cancelButtonAriaLabel: "",
+            cancelButtonColor: void 0,
+            buttonsStyling: !0,
+            reverseButtons: !1,
+            focusConfirm: !0,
+            focusDeny: !1,
+            focusCancel: !1,
+            returnFocus: !0,
+            showCloseButton: !1,
+            closeButtonHtml: "&times;",
+            closeButtonAriaLabel: "Close this dialog",
+            loaderHtml: "",
+            showLoaderOnConfirm: !1,
+            showLoaderOnDeny: !1,
+            imageUrl: void 0,
+            imageWidth: void 0,
+            imageHeight: void 0,
+            imageAlt: "",
+            timer: void 0,
+            timerProgressBar: !1,
+            width: void 0,
+            padding: void 0,
+            background: void 0,
+            input: void 0,
+            inputPlaceholder: "",
+            inputLabel: "",
+            inputValue: "",
+            inputOptions: {},
+            inputAutoFocus: !0,
+            inputAutoTrim: !0,
+            inputAttributes: {},
+            inputValidator: void 0,
+            returnInputValueOnDeny: !1,
+            validationMessage: void 0,
+            grow: !1,
+            position: "center",
+            progressSteps: [],
+            currentProgressStep: void 0,
+            progressStepsDistance: void 0,
+            willOpen: void 0,
+            didOpen: void 0,
+            didRender: void 0,
+            willClose: void 0,
+            didClose: void 0,
+            didDestroy: void 0,
+            scrollbarPadding: !0
         },
-        hideClass: {
-            popup: "swal2-hide",
-            backdrop: "swal2-backdrop-hide",
-            icon: "swal2-icon-hide"
-        },
-        customClass: {},
-        target: "body",
-        color: void 0,
-        backdrop: !0,
-        heightAuto: !0,
-        allowOutsideClick: !0,
-        allowEscapeKey: !0,
-        allowEnterKey: !0,
-        stopKeydownPropagation: !0,
-        keydownListenerCapture: !1,
-        showConfirmButton: !0,
-        showDenyButton: !1,
-        showCancelButton: !1,
-        preConfirm: void 0,
-        preDeny: void 0,
-        confirmButtonText: "OK",
-        confirmButtonAriaLabel: "",
-        confirmButtonColor: void 0,
-        denyButtonText: "No",
-        denyButtonAriaLabel: "",
-        denyButtonColor: void 0,
-        cancelButtonText: "Cancel",
-        cancelButtonAriaLabel: "",
-        cancelButtonColor: void 0,
-        buttonsStyling: !0,
-        reverseButtons: !1,
-        focusConfirm: !0,
-        focusDeny: !1,
-        focusCancel: !1,
-        returnFocus: !0,
-        showCloseButton: !1,
-        closeButtonHtml: "&times;",
-        closeButtonAriaLabel: "Close this dialog",
-        loaderHtml: "",
-        showLoaderOnConfirm: !1,
-        showLoaderOnDeny: !1,
-        imageUrl: void 0,
-        imageWidth: void 0,
-        imageHeight: void 0,
-        imageAlt: "",
-        timer: void 0,
-        timerProgressBar: !1,
-        width: void 0,
-        padding: void 0,
-        background: void 0,
-        input: void 0,
-        inputPlaceholder: "",
-        inputLabel: "",
-        inputValue: "",
-        inputOptions: {},
-        inputAutoFocus: !0,
-        inputAutoTrim: !0,
-        inputAttributes: {},
-        inputValidator: void 0,
-        returnInputValueOnDeny: !1,
-        validationMessage: void 0,
-        grow: !1,
-        position: "center",
-        progressSteps: [],
-        currentProgressStep: void 0,
-        progressStepsDistance: void 0,
-        willOpen: void 0,
-        didOpen: void 0,
-        didRender: void 0,
-        willClose: void 0,
-        didClose: void 0,
-        didDestroy: void 0,
-        scrollbarPadding: !0
-    },
         tn = ["allowEscapeKey", "allowOutsideClick", "background", "buttonsStyling", "cancelButtonAriaLabel", "cancelButtonColor", "cancelButtonText", "closeButtonAriaLabel", "closeButtonHtml", "color", "confirmButtonAriaLabel", "confirmButtonColor", "confirmButtonText", "currentProgressStep", "customClass", "denyButtonAriaLabel", "denyButtonColor", "denyButtonText", "didClose", "didDestroy", "footer", "hideClass", "html", "icon", "iconColor", "iconHtml", "imageAlt", "imageHeight", "imageUrl", "imageWidth", "preConfirm", "preDeny", "progressSteps", "returnFocus", "reverseButtons", "showCancelButton", "showCloseButton", "showConfirmButton", "showDenyButton", "text", "title", "titleText", "willClose"],
         en = {},
         nn = ["allowOutsideClick", "allowEnterKey", "backdrop", "focusConfirm", "focusDeny", "focusCancel", "returnFocus", "heightAuto", "keydownListenerCapture"],
@@ -1225,8 +1226,8 @@
         e ? (t.popup && y.swalCloseEventFinishedCallback && (y.swalCloseEventFinishedCallback(), delete y.swalCloseEventFinishedCallback), "function" == typeof e.didDestroy && e.didDestroy(), pn(this)) : mn(this)
     }
     var pn = function (t) {
-        mn(t), delete t.params, delete y.keydownHandler, delete y.keydownTarget, delete y.currentInstance
-    },
+            mn(t), delete t.params, delete y.keydownHandler, delete y.keydownTarget, delete y.currentInstance
+        },
         mn = function (t) {
             t.isAwaitingPromise ? (hn(Lt, t), t.isAwaitingPromise = !0) : (hn(ue, t), hn(Lt, t), delete t.isAwaitingPromise, delete t.disableButtons, delete t.enableButtons, delete t.getInput, delete t.disableInput, delete t.enableInput, delete t.hideLoading, delete t.disableLoading, delete t.showValidationMessage, delete t.resetValidationMessage, delete t.close, delete t.closePopup, delete t.closeModal, delete t.closeToast, delete t.rejectPromise, delete t.update, delete t._destroy)
         },
@@ -1265,14 +1266,14 @@
         wn = function (t) {
             t.popup.onmousedown = function () {
                 t.container.onmouseup = function (e) {
-                    t.container.onmouseup = function () { }, e.target === t.container && (yn = !0)
+                    t.container.onmouseup = function () {}, e.target === t.container && (yn = !0)
                 }
             }
         },
         Cn = function (t) {
             t.container.onmousedown = function () {
                 t.popup.onmouseup = function (e) {
-                    t.popup.onmouseup = function () { }, (e.target === t.popup || e.target instanceof HTMLElement && t.popup.contains(e.target)) && (yn = !0)
+                    t.popup.onmouseup = function () {}, (e.target === t.popup || e.target instanceof HTMLElement && t.popup.contains(e.target)) && (yn = !0)
                 }
             }
         },
@@ -1287,16 +1288,16 @@
             }(t)
         };
     var En = function () {
-        if (y.timeout) return function () {
-            var t = J();
-            if (t) {
-                var e = parseInt(window.getComputedStyle(t).width);
-                t.style.removeProperty("transition"), t.style.width = "100%";
-                var n = e / parseInt(window.getComputedStyle(t).width) * 100;
-                t.style.width = "".concat(n, "%")
-            }
-        }(), y.timeout.stop()
-    },
+            if (y.timeout) return function () {
+                var t = J();
+                if (t) {
+                    var e = parseInt(window.getComputedStyle(t).width);
+                    t.style.removeProperty("transition"), t.style.width = "100%";
+                    var n = e / parseInt(window.getComputedStyle(t).width) * 100;
+                    t.style.width = "".concat(n, "%")
+                }
+            }(), y.timeout.stop()
+        },
         Pn = function () {
             if (y.timeout) {
                 var t = y.timeout.start();
@@ -1306,14 +1307,14 @@
         Bn = !1,
         Tn = {};
     var xn, Sn = function (t) {
-        for (var e = t.target; e && e !== document; e = e.parentNode)
-            for (var n in Tn) {
-                var o = e.getAttribute(n);
-                if (o) return void Tn[n].fire({
-                    template: o
-                })
-            }
-    },
+            for (var e = t.target; e && e !== document; e = e.parentNode)
+                for (var n in Tn) {
+                    var o = e.getAttribute(n);
+                    if (o) return void Tn[n].fire({
+                        template: o
+                    })
+                }
+        },
         On = Object.freeze({
             __proto__: null,
             argsToParams: function (t) {
@@ -1588,9 +1589,9 @@
         Jn = function () {
             function t() {
                 if (n(this, t), b(this, $n, {
-                    writable: !0,
-                    value: void 0
-                }), "undefined" != typeof window) {
+                        writable: !0,
+                        value: void 0
+                    }), "undefined" != typeof window) {
                     xn = this;
                     for (var e = arguments.length, o = new Array(e), i = 0; i < e; i++) o[i] = arguments[i];
                     var r = Object.freeze(this.constructor.argsToParams(o));
@@ -1602,8 +1603,8 @@
                 value: function (t) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     if (function (t) {
-                        for (var e in !1 === t.backdrop && t.allowOutsideClick && B('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`'), t) cn(e), t.toast && un(e), sn(e)
-                    }(Object.assign({}, e, t)), y.currentInstance) {
+                            for (var e in !1 === t.backdrop && t.allowOutsideClick && B('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`'), t) cn(e), t.toast && un(e), sn(e)
+                        }(Object.assign({}, e, t)), y.currentInstance) {
                         var n = ue.swalPromiseResolve.get(y.currentInstance),
                             o = y.currentInstance.isAwaitingPromise;
                         y.currentInstance._destroy(), o || n({
@@ -1637,22 +1638,22 @@
                     })
                 };
                 ue.swalPromiseResolve.set(t, o), ue.swalPromiseReject.set(t, i), e.confirmButton.onclick = function () {
-                    ! function (t) {
-                        var e = Lt.innerParams.get(t);
-                        t.disableButtons(), e.input ? De(t, "confirm") : Ne(t, !0)
-                    }(t)
-                }, e.denyButton.onclick = function () {
-                    ! function (t) {
-                        var e = Lt.innerParams.get(t);
-                        t.disableButtons(), e.returnInputValueOnDeny ? De(t, "deny") : Ve(t, !1)
-                    }(t)
-                }, e.cancelButton.onclick = function () {
-                    ! function (t, e) {
-                        t.disableButtons(), e(Gt.cancel)
-                    }(t, r)
-                }, e.closeButton.onclick = function () {
-                    r(Gt.close)
-                },
+                        ! function (t) {
+                            var e = Lt.innerParams.get(t);
+                            t.disableButtons(), e.input ? De(t, "confirm") : Ne(t, !0)
+                        }(t)
+                    }, e.denyButton.onclick = function () {
+                        ! function (t) {
+                            var e = Lt.innerParams.get(t);
+                            t.disableButtons(), e.returnInputValueOnDeny ? De(t, "deny") : Ve(t, !1)
+                        }(t)
+                    }, e.cancelButton.onclick = function () {
+                        ! function (t, e) {
+                            t.disableButtons(), e(Gt.cancel)
+                        }(t, r)
+                    }, e.closeButton.onclick = function () {
+                        r(Gt.close)
+                    },
                     function (t, e, n) {
                         t.toast ? gn(t, e, n) : (wn(e), Cn(e), An(t, e, n))
                     }(n, e, r),
@@ -1674,11 +1675,11 @@
         },
         Gn = function (t, e) {
             var n = function (t) {
-                var e = "string" == typeof t.template ? document.querySelector(t.template) : t.template;
-                if (!e) return {};
-                var n = e.content;
-                return _n(n), Object.assign(Mn(n), In(n), Hn(n), Dn(n), qn(n), Vn(n), Rn(n, jn))
-            }(t),
+                    var e = "string" == typeof t.template ? document.querySelector(t.template) : t.template;
+                    if (!e) return {};
+                    var n = e.content;
+                    return _n(n), Object.assign(Mn(n), In(n), Hn(n), Dn(n), qn(n), Vn(n), Rn(n, jn))
+                }(t),
                 o = Object.assign({}, Qe, e, n, t);
             return o.showClass = Object.assign({}, Qe.showClass, o.showClass), o.hideClass = Object.assign({}, Qe.hideClass, o.hideClass), !1 === o.animation && (o.showClass = {
                 backdrop: "swal2-noanimation"
