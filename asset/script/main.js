@@ -232,6 +232,7 @@ function toggledarklight() {
 
 $(document).ready(function () {
     console.info("Compatibility Agent: Elements loaded and ready. (E" + Date.now() + ")");
+    $(".containheader").show();
     if (mobileCheck()) {
         console.warn("Compatibility Agent: Feature support for the current client may be partial or unavailable.");
         $("textarea").css({

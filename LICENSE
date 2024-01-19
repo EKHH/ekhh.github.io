@@ -243,3 +243,55 @@ Copyright (c) 2013-2024 Jos de Jong wjosdejong@gmail.com
  * @license es5-shim Copyright 2009-2020 by contributors, MIT License
  * see https://github.com/es-shims/es5-shim/blob/master/LICENSE
  */
+
+ /**
+ * StyleFix 1.0.3 & PrefixFree 1.0.7
+ * @author Lea Verou
+ * MIT license
+ */
+
+ /*
+selectivizr v1.0.3b - (c) Keith Clark, freely distributable under the terms 
+of the MIT license.
+
+selectivizr.com
+*/
+/* 
+  
+Notes about this source
+-----------------------
+
+ * The #DEBUG_START and #DEBUG_END comments are used to mark blocks of code
+   that will be removed prior to building a final release version (using a
+   pre-compression script)
+  
+  
+References:
+-----------
+ 
+ * CSS Syntax          : http://www.w3.org/TR/2003/WD-css3-syntax-20030813/#style
+ * Selectors           : http://www.w3.org/TR/css3-selectors/#selectors
+ * IE Compatability    : http://msdn.microsoft.com/en-us/library/cc351024(VS.85).aspx
+ * W3C Selector Tests  : http://www.w3.org/Style/CSS/Test/CSS3/Selectors/current/html/tests/
+ 
+*/
+
+		/*!
+		 * ContentLoaded.js by Diego Perini, modified for IE<9 only (to save space)
+		 *
+		 * Author: Diego Perini (diego.perini at gmail.com)
+		 * Summary: cross-browser wrapper for DOMContentLoaded
+		 * Updated: 20101020
+		 * License: MIT
+		 * Version: 1.2
+		 *
+		 * URL:
+		 * http://javascript.nwbox.com/ContentLoaded/
+		 * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
+		 *
+		 */
+
+       https://github.com/lojjic/PIE?tab=GPL-2.0-2-ov-file
+       /**
+* @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+*/

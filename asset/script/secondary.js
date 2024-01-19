@@ -71,14 +71,6 @@ function resetAll() {
     window.location.reload();
 }
 
-function handleError(evt) {
-    if (evt.message) {
-        alert(evt.message);
-    } else {
-        alert(evt.message);
-    }
-}
-
 if (!Date.now) {
     Date.now = function () {
         return new Date().getTime();
@@ -166,5 +158,11 @@ input.click(function () {
 });
 
 if (window.addEventListener) {
-    window.addEventListener("error", handleError, true);
+    window.addEventListener("error", function (e) {
+        alert(e.error.message);
+        return false;
+     })
+     console.info("Compatibility Agent: Secondary error handler registered.");
+} else {
+    console.warn("Compatibility Agent: Error handling is not supported.");
 }

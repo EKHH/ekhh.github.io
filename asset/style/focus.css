@@ -19,6 +19,13 @@
     -o-transition: 0.4s;
     transition: 0.4s;
     box-sizing: border-box;
+    background: #00deff;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#ff00ee', endColorstr='#00deff');
+    background: -moz-linear-gradient(#ff00ee, #00deff);
+    background: -webkit-linear-gradient(#ff00ee, #00deff);
+    background: -o-linear-gradient(#ff00ee, #00deff);
+    background: -ms-linear-gradient(#ff00ee, #00deff);
+    background: linear-gradient(#ff00ee, #00deff);
     background: linear-gradient(270deg, #ff00ee, #00deff);
     background-size: 600% 600%;
     -webkit-animation: bottombar 39s ease infinite;

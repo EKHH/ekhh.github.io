@@ -1,5 +1,6 @@
 .containheader {
     height: 0;
+    display: none;
 }
 
 a {
