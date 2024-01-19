@@ -132,7 +132,7 @@ function resetAll() {
     console.API.clear();
     console.groupEnd();
     console.info("Interaction Handler: Reload initiated.");
-    window.location.reload();
+    window.location.reload(true)
 }
 
 function fadeinheader() {

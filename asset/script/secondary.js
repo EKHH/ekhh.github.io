@@ -68,7 +68,7 @@ function resetAll() {
     console.API.clear();
     console.groupEnd();
     console.info("Interaction Handler: Reload initiated.");
-    window.location.reload();
+    window.location.reload(true)
 }
 
 if (!Date.now) {
@@ -161,8 +161,8 @@ if (window.addEventListener) {
     window.addEventListener("error", function (e) {
         alert(e.error.message);
         return false;
-     })
-     console.info("Compatibility Agent: Secondary error handler registered.");
+    })
+    console.info("Compatibility Agent: Secondary error handler registered.");
 } else {
     console.warn("Compatibility Agent: Error handling is not supported.");
 }
