@@ -3,7 +3,7 @@
 
 <div align="center">
   <a href="https://github.com/EKHH/ekhh.github.io">
-    <img src="design.svg" alt="Logo" width="80" height="80">
+    <img src="design/icon.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Amathyst</h3>
