@@ -164,5 +164,5 @@ if (window.addEventListener) {
     })
     console.info("Compatibility Agent: Secondary error handler registered.");
 } else {
-    console.warn("Compatibility Agent: Error handling is not supported.");
+    console.warn("Compatibility Agent: Error handling disabled because it is not supported.");
 }
