@@ -1,4 +1,4 @@
-## Amathyst User Interface
+### Amathyst User Interface
 
 Distributed under the MIT License.
 
