@@ -1,4 +1,6 @@
-### Amathyst General User Interface
+### Amathyst General User Interface and Design
+
+> Unless stated otherwise, all elements offered in this project are distributed under the MIT License.
 
 ```
 MIT License
