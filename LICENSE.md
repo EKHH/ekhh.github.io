@@ -3,26 +3,21 @@
 Distributed under the MIT License.
 
 <blockquote>
-Copyright (c) 2024 EKHH
+`Copyright (c) 2024 EKHH
 <br></br>
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 <br></br>
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 <br></br>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
 </blockquote>
 
 ### Math.js
 
-<h3 align="center">Amathyst</h3>
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
-
 <blockquote>
-<p align="center">Apache License</p>
-<p align="center">Version 2.0, January 2004</p>
-<p align="center">http://www.apache.org/licenses/</p>
+<p align="center">Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/</p>
 Copyright (c) 2013-2024 Jos de Jong wjosdejong@gmail.com
 <br></br>
    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
@@ -77,7 +72,7 @@ Accepting Warranty or Additional Liability. While redistributing the Work or Der
 <br></br>
 END OF TERMS AND CONDITIONS
 
-   APPENDIX: How to apply the Apache License to your work.
+APPENDIX: How to apply the Apache License to your work.
 
       To apply the Apache License to your work, attach the following
       boilerplate notice, with the fields enclosed by brackets "[]"
@@ -88,83 +83,82 @@ END OF TERMS AND CONDITIONS
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [yyyy] [name of copyright owner]
+Copyright [yyyy] [name of copyright owner]
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
+/\*\*
 
+- core-js 3.35.0
+- © 2014-2023 Denis Pushkarev (zloirock.ru)
+- license: https://github.com/zloirock/core-js/blob/v3.35.0/LICENSE
+- source: https://github.com/zloirock/core-js
+  \*/
 
-/**
- * core-js 3.35.0
- * © 2014-2023 Denis Pushkarev (zloirock.ru)
- * license: https://github.com/zloirock/core-js/blob/v3.35.0/LICENSE
- * source: https://github.com/zloirock/core-js
- */
+/\*!
 
- /*!
- * https://github.com/es-shims/es5-shim
- * @license es5-shim Copyright 2009-2020 by contributors, MIT License
- * see https://github.com/es-shims/es5-shim/blob/master/LICENSE
- */
+- https://github.com/es-shims/es5-shim
+- @license es5-shim Copyright 2009-2020 by contributors, MIT License
+- see https://github.com/es-shims/es5-shim/blob/master/LICENSE
+  \*/
 
- /**
- * StyleFix 1.0.3 & PrefixFree 1.0.7
- * @author Lea Verou
- * MIT license
- */
+/\*\*
 
- /*
-selectivizr v1.0.3b - (c) Keith Clark, freely distributable under the terms 
+- StyleFix 1.0.3 & PrefixFree 1.0.7
+- @author Lea Verou
+- MIT license
+  \*/
+
+/\*
+selectivizr v1.0.3b - (c) Keith Clark, freely distributable under the terms
 of the MIT license.
 
 selectivizr.com
-*/
-/* 
-  
-Notes about this source
------------------------
+_/
+/_
 
- * The #DEBUG_START and #DEBUG_END comments are used to mark blocks of code
-   that will be removed prior to building a final release version (using a
-   pre-compression script)
-  
-  
-References:
------------
- 
- * CSS Syntax          : http://www.w3.org/TR/2003/WD-css3-syntax-20030813/#style
- * Selectors           : http://www.w3.org/TR/css3-selectors/#selectors
- * IE Compatability    : http://msdn.microsoft.com/en-us/library/cc351024(VS.85).aspx
- * W3C Selector Tests  : http://www.w3.org/Style/CSS/Test/CSS3/Selectors/current/html/tests/
- 
-*/
+## Notes about this source
 
-		/*!
-		 * ContentLoaded.js by Diego Perini, modified for IE<9 only (to save space)
-		 *
-		 * Author: Diego Perini (diego.perini at gmail.com)
-		 * Summary: cross-browser wrapper for DOMContentLoaded
-		 * Updated: 20101020
-		 * License: MIT
-		 * Version: 1.2
-		 *
-		 * URL:
-		 * http://javascript.nwbox.com/ContentLoaded/
-		 * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
-		 *
-		 */
+- The #DEBUG_START and #DEBUG_END comments are used to mark blocks of code
+  that will be removed prior to building a final release version (using a
+  pre-compression script)
+
+## References:
+
+- CSS Syntax : http://www.w3.org/TR/2003/WD-css3-syntax-20030813/#style
+- Selectors : http://www.w3.org/TR/css3-selectors/#selectors
+- IE Compatability : http://msdn.microsoft.com/en-us/library/cc351024(VS.85).aspx
+- W3C Selector Tests : http://www.w3.org/Style/CSS/Test/CSS3/Selectors/current/html/tests/
+
+\*/
+
+    	/*!
+    	 * ContentLoaded.js by Diego Perini, modified for IE<9 only (to save space)
+    	 *
+    	 * Author: Diego Perini (diego.perini at gmail.com)
+    	 * Summary: cross-browser wrapper for DOMContentLoaded
+    	 * Updated: 20101020
+    	 * License: MIT
+    	 * Version: 1.2
+    	 *
+    	 * URL:
+    	 * http://javascript.nwbox.com/ContentLoaded/
+    	 * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
+    	 *
+    	 */
 
        https://github.com/lojjic/PIE?tab=GPL-2.0-2-ov-file
        /**
-* @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
-*/
+
+- @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+  \*/
