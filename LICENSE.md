@@ -28,6 +28,8 @@ SOFTWARE.
 
 ### Math.js
 
+> Math.js is an extensive math library for JavaScript and Node.js. It features a flexible expression parser with support for symbolic computation, comes with a large set of built-in functions and constants, and offers an integrated solution to work with different data types like numbers, big numbers, complex numbers, fractions, units, and matrices. Powerful and easy to use. Math.js is distributed under the MIT License.
+
 ```
                                Apache License
                            Version 2.0, January 2004
