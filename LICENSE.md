@@ -15,9 +15,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Math.js
 
 <blockquote>
-<p align="center">Apache License
+<p align="center">`Apache License
 Version 2.0, January 2004
-http://www.apache.org/licenses/</p>
+http://www.apache.org/licenses/`</p>
 Copyright (c) 2013-2024 Jos de Jong wjosdejong@gmail.com
 <br></br>
    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
