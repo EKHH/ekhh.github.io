@@ -62,14 +62,52 @@ body {
 }
 
 .isFade {
+    -webkit-animation: fadeInStartup ease 2s;
+    -moz-animation: fadeInStartup ease 2s;
+    -o-animation: fadeInStartup ease 2s;
     animation: fadeInStartup ease 2s;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
     animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-transition: background-color 300ms linear, color 1s linear;
     -moz-transition: background-color 300ms linear, color 1s linear;
     -o-transition: background-color 300ms linear, color 1s linear;
-    -ms-transition: background-color 300ms linear, color 1s linear;
     transition: background-color 300ms linear, color 1s linear;
+}
+
+@-webkit-keyframes fadeInStartup {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes fadeInStartup {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-o-keyframes fadeInStartup {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
 }
 
 @keyframes fadeInStartup {
@@ -85,5 +123,7 @@ body {
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box
 }

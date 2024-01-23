@@ -1,4 +1,6 @@
 .primary-container {
+    -webkit-writing-mode: horizontal-tb !important;
+    -ms-writing-mode: lr-tb !important;
     writing-mode: horizontal-tb !important;
     text-align: center;
     padding: 0;
@@ -25,6 +27,8 @@ textarea[type="text"] {
     color: #333333;
     color: var(--color-fg);
     background-color: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
     letter-spacing: 1px;

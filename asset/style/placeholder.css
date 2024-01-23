@@ -12,6 +12,7 @@ textarea[type="text"]:focus::-webkit-input-placeholder {
 textarea[type="text"]::-ms-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
+    -ms-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
     color: gray
 }
@@ -23,6 +24,7 @@ textarea[type="text"]:focus::-ms-input-placeholder {
 textarea[type="text"]::-moz-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
     color: gray
 }
@@ -34,6 +36,7 @@ textarea[type="text"]:focus::-moz-input-placeholder {
 textarea[type="text"]:-moz-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
     color: gray
 }
@@ -42,11 +45,71 @@ textarea[type="text"]:focus:-moz-input-placeholder {
     opacity: 0
 }
 
-textarea[type="text"]::placeholder {
+textarea[type="text"]::-webkit-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
     color: gray
+}
+
+textarea[type="text"]:-moz-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]::-moz-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:-ms-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -ms-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]::-ms-input-placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -ms-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]::placeholder {
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    color: gray
+}
+
+textarea[type="text"]:focus::-webkit-input-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]:focus:-moz-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]:focus::-moz-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]:focus:-ms-input-placeholder {
+    opacity: 0
+}
+
+textarea[type="text"]:focus::-ms-input-placeholder {
+    opacity: 0
 }
 
 textarea[type="text"]:focus::placeholder {

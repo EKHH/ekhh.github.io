@@ -4,8 +4,17 @@
 }
 
 .isFade {
+    -webkit-animation: 0s !important;
+    -moz-animation: 0s !important;
+    -o-animation: 0s !important;
     animation: 0s !important;
+    -webkit-animation-iteration-count: 0 !important;
+    -moz-animation-iteration-count: 0 !important;
+    -o-animation-iteration-count: 0 !important;
     animation-iteration-count: 0 !important;
+    -webkit-animation-fill-mode: none !important;
+    -moz-animation-fill-mode: none !important;
+    -o-animation-fill-mode: none !important;
     animation-fill-mode: none !important;
 }
 

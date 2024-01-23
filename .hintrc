@@ -16,7 +16,11 @@
       "default",
       {
         "ignore": [
-          "scrollbar-width"
+          "scrollbar-width",
+          "-ms-grid-column-span",
+          "-ms-grid-row-span",
+          "-ms-grid-row-align",
+          "-ms-grid-column-align"
         ]
       }
     ]
