@@ -235,12 +235,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
-### es5-shim
+### jQuery
+
+> jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
 
 ```
 The MIT License (MIT)
 
-Copyright (C) 2009-2016 Kristopher Michael Kowal and contributors
+Copyright (C) OpenJS Foundation and other contributors, https://openjsf.org/
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+### sweetalert2
+
+> sweetalert2 is a beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes with no dependencies.
+
+```
+The MIT License (MIT)
+
+Copyright (c) 2014 Tristan Edwards & Limon Monte
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -249,72 +280,42 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
-/\*!
+### selectivizr
 
-- https://github.com/es-shims/es5-shim
-- @license es5-shim Copyright 2009-2020 by contributors, MIT License
-- see https://github.com/es-shims/es5-shim/blob/master/LICENSE
-  \*/
+> selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.
 
-/\*\*
+```
+The MIT License (MIT)
 
-- StyleFix 1.0.3 & PrefixFree 1.0.7
-- @author Lea Verou
-- MIT license
-  \*/
+Copyright (c) 2012 Keith Clark
 
-/\*
-selectivizr v1.0.3b - (c) Keith Clark, freely distributable under the terms
-of the MIT license.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-selectivizr.com
-_/
-/_
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Notes about this source
-
-- The #DEBUG_START and #DEBUG_END comments are used to mark blocks of code
-  that will be removed prior to building a final release version (using a
-  pre-compression script)
-
-## References:
-
-- CSS Syntax : http://www.w3.org/TR/2003/WD-css3-syntax-20030813/#style
-- Selectors : http://www.w3.org/TR/css3-selectors/#selectors
-- IE Compatability : http://msdn.microsoft.com/en-us/library/cc351024(VS.85).aspx
-- W3C Selector Tests : http://www.w3.org/Style/CSS/Test/CSS3/Selectors/current/html/tests/
-
-\*/
-
-    	/*!
-    	 * ContentLoaded.js by Diego Perini, modified for IE<9 only (to save space)
-    	 *
-    	 * Author: Diego Perini (diego.perini at gmail.com)
-    	 * Summary: cross-browser wrapper for DOMContentLoaded
-    	 * Updated: 20101020
-    	 * License: MIT
-    	 * Version: 1.2
-    	 *
-    	 * URL:
-    	 * http://javascript.nwbox.com/ContentLoaded/
-    	 * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
-    	 *
-    	 */
-
-       https://github.com/lojjic/PIE?tab=GPL-2.0-2-ov-file
-       /**
-
-- @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
-  \*/
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
