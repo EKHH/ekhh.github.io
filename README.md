@@ -21,61 +21,74 @@
 ## Usage (work in progress)
 
 `+` for addition
+    <br />
 `-` for subtraction
+    <br />
 `*` for multiplication
+    <br />
 `/` for division
+    <br />
 `simplify('equation')` to simplify
+    <br />
 supported constants
-
+    <br />
 speedOfLight
+    <br />
 gravitationConstant
+    <br />
 planckConstant
+    <br />
 reducedPlanckConstant
+    <br />
 magneticConstant
+    <br />
 electricConstant
+    <br />
 vacuumImpedance
+    <br />
 coulomb
 elementaryCharge
-bohrMagneton
-conductanceQuantum
-inverseConductanceQuantum
-magneticFluxQuantum
-nuclearMagneton
-klitzing
-bohrRadius
-classicalElectronRadius
-electronMass
-fermiCoupling
-fineStructure
-hartreeEnergy
-protonMass
-deuteronMass
-neutronMass
-quantumOfCirculation
-rydberg
-thomsonCrossSection
-weakMixingAngle
-efimovFactor
-atomicMass
-avogadro
-boltzmann
-faraday
-firstRadiation
-loschmidt
-gasConstant
-molarPlanckConstant
-molarVolume
-sackurTetrode
-secondRadiation
-stefanBoltzmann
-molarMass
-molarMassC12
-gravity
-planckLength
-planckMass
-planckTime
-planckCharge
-planckTemperature
+    <br />
+bohrMagneton    <br />
+conductanceQuantum    <br />
+inverseConductanceQuantum    <br />
+magneticFluxQuantum    <br />
+nuclearMagneton    <br />
+klitzing    <br />
+bohrRadius    <br />
+classicalElectronRadius    <br />
+electronMass    <br />
+fermiCoupling    <br />
+fineStructure    <br />
+hartreeEnergy    <br />
+protonMass    <br />
+deuteronMass    <br />
+neutronMass    <br />
+quantumOfCirculation    <br />
+rydberg    <br />
+thomsonCrossSection    <br />
+weakMixingAngle    <br />
+efimovFactor    <br />
+atomicMass    <br />
+avogadro    <br />
+boltzmann    <br />
+faraday    <br />
+firstRadiation    <br />
+loschmidt    <br />
+gasConstant    <br />
+molarPlanckConstant    <br />
+molarVolume    <br />
+sackurTetrode    <br />
+secondRadiation    <br />
+stefanBoltzmann    <br />
+molarMass    <br />
+molarMassC12    <br />
+gravity    <br />
+planckLength    <br />
+planckMass    <br />
+planckTime    <br />
+planckCharge    <br />
+planckTemperature    <br />
 
 
 <!---
