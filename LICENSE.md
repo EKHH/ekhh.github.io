@@ -1,6 +1,6 @@
-### Amathyst General User Interface
+### Amathyst User Interface
 
-> Amathyst General User Interface is the front-end design for Project Amathyst integrated with external components. It refers to any component of this project that is not subjected to a license below.
+> Amathyst User Interface is the front-end design for Project Amathyst. It refers to any component of this project that is not subjected to a license below.
 
 ```
 MIT License
