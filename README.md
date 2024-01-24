@@ -17,6 +17,15 @@
     <br />
   </p>
 </div>
+
+## Usage (work in progress)
+
+`+` for Addition
+`-` for subtraction
+`*` for multiplication
+`/` for division
+
+
 <!---
 <details>
   <summary>Table of Contents</summary>
