@@ -1,6 +1,6 @@
 ### Amathyst General User Interface
 
-> Unless stated otherwise, all elements offered in this project are distributed under the MIT License.
+> Amathyst General User Interface is the front-end design for Project Amathyst integrated with external components. It refers to any component of this project that is not subjected to a license below.
 
 ```
 MIT License
@@ -26,9 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### Math.js
+### math.js
 
-> Math.js is an extensive math library for JavaScript and Node.js. It features a flexible expression parser with support for symbolic computation, comes with a large set of built-in functions and constants, and offers an integrated solution to work with different data types like numbers, big numbers, complex numbers, fractions, units, and matrices. Math.js is distributed separately under the Apache License, Version 2.0.
+> math.js is an extensive math library for JavaScript and Node.js. It features a flexible expression parser with support for symbolic computation, comes with a large set of built-in functions and constants, and offers an integrated solution to work with different data types like numbers, big numbers, complex numbers, fractions, units, and matrices. Math.js is distributed separately under the Apache License, Version 2.0.
 
 ```
                                Apache License
@@ -242,7 +242,7 @@ THE SOFTWARE.
 ```
 The MIT License (MIT)
 
-Copyright (C) OpenJS Foundation and other contributors, https://openjsf.org/
+Copyright (c) OpenJS Foundation and other contributors, https://openjsf.org/
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -294,7 +294,7 @@ SOFTWARE.
 
 ### selectivizr
 
-> selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.
+> selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in IE 6-8.
 
 ```
 The MIT License (MIT)
