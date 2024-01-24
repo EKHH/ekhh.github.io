@@ -20,10 +20,62 @@
 
 ## Usage (work in progress)
 
-`+` for Addition
+`+` for addition
 `-` for subtraction
 `*` for multiplication
 `/` for division
+`simplify('equation')` to simplify
+supported constants
+
+speedOfLight
+gravitationConstant
+planckConstant
+reducedPlanckConstant
+magneticConstant
+electricConstant
+vacuumImpedance
+coulomb
+elementaryCharge
+bohrMagneton
+conductanceQuantum
+inverseConductanceQuantum
+magneticFluxQuantum
+nuclearMagneton
+klitzing
+bohrRadius
+classicalElectronRadius
+electronMass
+fermiCoupling
+fineStructure
+hartreeEnergy
+protonMass
+deuteronMass
+neutronMass
+quantumOfCirculation
+rydberg
+thomsonCrossSection
+weakMixingAngle
+efimovFactor
+atomicMass
+avogadro
+boltzmann
+faraday
+firstRadiation
+loschmidt
+gasConstant
+molarPlanckConstant
+molarVolume
+sackurTetrode
+secondRadiation
+stefanBoltzmann
+molarMass
+molarMassC12
+gravity
+planckLength
+planckMass
+planckTime
+planckCharge
+planckTemperature
 
 
 <!---
