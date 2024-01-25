@@ -214,6 +214,8 @@ SOFTWARE.
 > core-js is a modular standard library for JavaScript. It includes polyfills for ECMAScript up to 2024: promises, symbols, collections, iterators, typed arrays, many other features, ECMAScript proposals, some cross-platform WHATWG / W3C features and proposals like URL.
 
 ```
+The MIT License (MIT)
+
 Copyright (c) 2014-2023 Denis Pushkarev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
