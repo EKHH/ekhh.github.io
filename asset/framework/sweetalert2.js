@@ -3,7 +3,28 @@
 }(this, (function () {
     "use strict";
 
-    function t(t) {
+    function t(t, n, o) {
+        return n = c(n),
+            function (t, e) {
+                if (e && ("object" == typeof e || "function" == typeof e)) return e;
+                if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+                return function (t) {
+                    if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+                    return t
+                }(t)
+            }(t, e() ? Reflect.construct(n, o || [], c(t).constructor) : n.apply(t, o))
+    }
+
+    function e() {
+        try {
+            var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {})))
+        } catch (t) {}
+        return (e = function () {
+            return !!t
+        })()
+    }
+
+    function n(t) {
         var e = function (t, e) {
             if ("object" != typeof t || !t) return t;
             var n = t[Symbol.toPrimitive];
@@ -17,86 +38,57 @@
         return "symbol" == typeof e ? e : String(e)
     }
 
-    function e(t) {
-        return e = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
+    function o(t) {
+        return o = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
             return typeof t
         } : function (t) {
             return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
-        }, e(t)
+        }, o(t)
     }
 
-    function n(t, e) {
+    function i(t, e) {
         if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function")
     }
 
-    function o(e, n) {
-        for (var o = 0; o < n.length; o++) {
-            var i = n[o];
-            i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(e, t(i.key), i)
+    function r(t, e) {
+        for (var o = 0; o < e.length; o++) {
+            var i = e[o];
+            i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(t, n(i.key), i)
         }
     }
 
-    function i(t, e, n) {
-        return e && o(t.prototype, e), n && o(t, n), Object.defineProperty(t, "prototype", {
+    function a(t, e, n) {
+        return e && r(t.prototype, e), n && r(t, n), Object.defineProperty(t, "prototype", {
             writable: !1
         }), t
     }
 
-    function r(t) {
-        return r = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+    function c(t) {
+        return c = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
             return t.__proto__ || Object.getPrototypeOf(t)
-        }, r(t)
+        }, c(t)
     }
 
-    function a(t, e) {
-        return a = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    function u(t, e) {
+        return u = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
             return t.__proto__ = e, t
-        }, a(t, e)
+        }, u(t, e)
     }
 
-    function c() {
-        if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-        if (Reflect.construct.sham) return !1;
-        if ("function" == typeof Proxy) return !0;
-        try {
-            return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {}))), !0
-        } catch (t) {
-            return !1
-        }
-    }
-
-    function u(t, e, n) {
-        return u = c() ? Reflect.construct.bind() : function (t, e, n) {
-            var o = [null];
-            o.push.apply(o, e);
-            var i = new(Function.bind.apply(t, o));
-            return n && a(i, n.prototype), i
-        }, u.apply(null, arguments)
-    }
-
-    function s(t, e) {
-        if (e && ("object" == typeof e || "function" == typeof e)) return e;
-        if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
-        return function (t) {
-            if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-            return t
-        }(t)
-    }
-
-    function l() {
-        return l = "undefined" != typeof Reflect && Reflect.get ? Reflect.get.bind() : function (t, e, n) {
+    function s() {
+        return s = "undefined" != typeof Reflect && Reflect.get ? Reflect.get.bind() : function (t, e, n) {
             var o = function (t, e) {
-                for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = r(t)););
+                for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = c(t)););
                 return t
             }(t, e);
             if (o) {
                 var i = Object.getOwnPropertyDescriptor(o, e);
                 return i.get ? i.get.call(arguments.length < 3 ? t : n) : i.value
             }
-        }, l.apply(this, arguments)
+        }, s.apply(this, arguments)
     }
 
-    function d(t, e) {
+    function l(t, e) {
         return function (t) {
             if (Array.isArray(t)) return t
         }(t) || function (t, e) {
@@ -122,164 +114,164 @@
                 }
                 return c
             }
-        }(t, e) || p(t, e) || function () {
+        }(t, e) || f(t, e) || function () {
             throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
         }()
     }
 
-    function f(t) {
+    function d(t) {
         return function (t) {
-            if (Array.isArray(t)) return m(t)
+            if (Array.isArray(t)) return p(t)
         }(t) || function (t) {
             if ("undefined" != typeof Symbol && null != t[Symbol.iterator] || null != t["@@iterator"]) return Array.from(t)
-        }(t) || p(t) || function () {
+        }(t) || f(t) || function () {
             throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
         }()
     }
 
-    function p(t, e) {
+    function f(t, e) {
         if (t) {
-            if ("string" == typeof t) return m(t, e);
+            if ("string" == typeof t) return p(t, e);
             var n = Object.prototype.toString.call(t).slice(8, -1);
-            return "Object" === n && t.constructor && (n = t.constructor.name), "Map" === n || "Set" === n ? Array.from(t) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? m(t, e) : void 0
+            return "Object" === n && t.constructor && (n = t.constructor.name), "Map" === n || "Set" === n ? Array.from(t) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? p(t, e) : void 0
         }
     }
 
-    function m(t, e) {
+    function p(t, e) {
         (null == e || e > t.length) && (e = t.length);
         for (var n = 0, o = new Array(e); n < e; n++) o[n] = t[n];
         return o
     }
 
-    function h(t, e) {
+    function m(t, e) {
         return function (t, e) {
             if (e.get) return e.get.call(t);
             return e.value
-        }(t, g(t, e, "get"))
+        }(t, v(t, e, "get"))
     }
 
-    function v(t, e, n) {
+    function h(t, e, n) {
         return function (t, e, n) {
             if (e.set) e.set.call(t, n);
             else {
                 if (!e.writable) throw new TypeError("attempted to set read only private field");
                 e.value = n
             }
-        }(t, g(t, e, "set"), n), n
+        }(t, v(t, e, "set"), n), n
     }
 
-    function g(t, e, n) {
+    function v(t, e, n) {
         if (!e.has(t)) throw new TypeError("attempted to " + n + " private field on non-instance");
         return e.get(t)
     }
 
-    function b(t, e, n) {
+    function g(t, e, n) {
         ! function (t, e) {
             if (e.has(t)) throw new TypeError("Cannot initialize the same private elements twice on an object")
         }(t, e), e.set(t, n)
     }
-    var y = {},
-        w = function (t) {
+    var b = {},
+        y = function (t) {
             return new Promise((function (e) {
                 if (!t) return e();
                 var n = window.scrollX,
                     o = window.scrollY;
-                y.restoreFocusTimeout = setTimeout((function () {
-                    y.previousActiveElement instanceof HTMLElement ? (y.previousActiveElement.focus(), y.previousActiveElement = null) : document.body && document.body.focus(), e()
+                b.restoreFocusTimeout = setTimeout((function () {
+                    b.previousActiveElement instanceof HTMLElement ? (b.previousActiveElement.focus(), b.previousActiveElement = null) : document.body && document.body.focus(), e()
                 }), 100), window.scrollTo(n, o)
             }))
         },
-        C = "swal2-",
-        A = ["container", "shown", "height-auto", "iosfix", "popup", "modal", "no-backdrop", "no-transition", "toast", "toast-shown", "show", "hide", "close", "title", "html-container", "actions", "confirm", "deny", "cancel", "default-outline", "footer", "icon", "icon-content", "image", "input", "file", "range", "select", "radio", "checkbox", "label", "textarea", "inputerror", "input-label", "validation-message", "progress-steps", "active-progress-step", "progress-step", "progress-step-line", "loader", "loading", "styled", "top", "top-start", "top-end", "top-left", "top-right", "center", "center-start", "center-end", "center-left", "center-right", "bottom", "bottom-start", "bottom-end", "bottom-left", "bottom-right", "grow-row", "grow-column", "grow-fullscreen", "rtl", "timer-progress-bar", "timer-progress-bar-container", "scrollbar-measure", "icon-success", "icon-warning", "icon-info", "icon-question", "icon-error"].reduce((function (t, e) {
-            return t[e] = C + e, t
+        w = "swal2-",
+        C = ["container", "shown", "height-auto", "iosfix", "popup", "modal", "no-backdrop", "no-transition", "toast", "toast-shown", "show", "hide", "close", "title", "html-container", "actions", "confirm", "deny", "cancel", "default-outline", "footer", "icon", "icon-content", "image", "input", "file", "range", "select", "radio", "checkbox", "label", "textarea", "inputerror", "input-label", "validation-message", "progress-steps", "active-progress-step", "progress-step", "progress-step-line", "loader", "loading", "styled", "top", "top-start", "top-end", "top-left", "top-right", "center", "center-start", "center-end", "center-left", "center-right", "bottom", "bottom-start", "bottom-end", "bottom-left", "bottom-right", "grow-row", "grow-column", "grow-fullscreen", "rtl", "timer-progress-bar", "timer-progress-bar-container", "scrollbar-measure", "icon-success", "icon-warning", "icon-info", "icon-question", "icon-error"].reduce((function (t, e) {
+            return t[e] = w + e, t
         }), {}),
-        k = ["success", "warning", "info", "question", "error"].reduce((function (t, e) {
-            return t[e] = C + e, t
+        A = ["success", "warning", "info", "question", "error"].reduce((function (t, e) {
+            return t[e] = w + e, t
         }), {}),
-        E = "SweetAlert2:",
-        P = function (t) {
+        k = "SweetAlert2:",
+        E = function (t) {
             return t.charAt(0).toUpperCase() + t.slice(1)
         },
         B = function (t) {
-            console.warn("".concat(E, " ").concat("object" === e(t) ? t.join(" ") : t))
+            console.warn("".concat(k, " ").concat("object" === o(t) ? t.join(" ") : t))
         },
-        T = function (t) {
-            console.error("".concat(E, " ").concat(t))
+        P = function (t) {
+            console.error("".concat(k, " ").concat(t))
         },
-        x = [],
-        S = function (t, e) {
+        T = [],
+        x = function (t, e) {
             var n;
-            n = '"'.concat(t, '" is deprecated and will be removed in the next major release. Please use "').concat(e, '" instead.'), x.includes(n) || (x.push(n), B(n))
+            n = '"'.concat(t, '" is deprecated and will be removed in the next major release. Please use "').concat(e, '" instead.'), T.includes(n) || (T.push(n), B(n))
         },
-        O = function (t) {
+        S = function (t) {
             return "function" == typeof t ? t() : t
         },
-        L = function (t) {
+        O = function (t) {
             return t && "function" == typeof t.toPromise
         },
-        j = function (t) {
-            return L(t) ? t.toPromise() : Promise.resolve(t)
+        L = function (t) {
+            return O(t) ? t.toPromise() : Promise.resolve(t)
         },
-        M = function (t) {
+        j = function (t) {
             return t && Promise.resolve(t) === t
         },
-        I = function () {
-            return document.body.querySelector(".".concat(A.container))
+        M = function () {
+            return document.body.querySelector(".".concat(C.container))
         },
-        H = function (t) {
-            var e = I();
+        I = function (t) {
+            var e = M();
             return e ? e.querySelector(t) : null
         },
-        D = function (t) {
-            return H(".".concat(t))
+        H = function (t) {
+            return I(".".concat(t))
+        },
+        D = function () {
+            return H(C.popup)
         },
         q = function () {
-            return D(A.popup)
+            return H(C.icon)
         },
         V = function () {
-            return D(A.icon)
-        },
-        R = function () {
-            return D(A.title)
+            return H(C.title)
         },
         _ = function () {
-            return D(A["html-container"])
+            return H(C["html-container"])
+        },
+        R = function () {
+            return H(C.image)
         },
         N = function () {
-            return D(A.image)
+            return H(C["progress-steps"])
         },
         F = function () {
-            return D(A["progress-steps"])
+            return H(C["validation-message"])
         },
         U = function () {
-            return D(A["validation-message"])
+            return I(".".concat(C.actions, " .").concat(C.confirm))
         },
         z = function () {
-            return H(".".concat(A.actions, " .").concat(A.confirm))
+            return I(".".concat(C.actions, " .").concat(C.cancel))
         },
         W = function () {
-            return H(".".concat(A.actions, " .").concat(A.cancel))
+            return I(".".concat(C.actions, " .").concat(C.deny))
         },
         K = function () {
-            return H(".".concat(A.actions, " .").concat(A.deny))
+            return I(".".concat(C.loader))
         },
         Y = function () {
-            return H(".".concat(A.loader))
+            return H(C.actions)
         },
         Z = function () {
-            return D(A.actions)
+            return H(C.footer)
         },
         $ = function () {
-            return D(A.footer)
+            return H(C["timer-progress-bar"])
         },
         J = function () {
-            return D(A["timer-progress-bar"])
+            return H(C.close)
         },
         X = function () {
-            return D(A.close)
-        },
-        G = function () {
-            var t = q();
+            var t = D();
             if (!t) return [];
             var e = t.querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'),
                 n = Array.from(e).sort((function (t, e) {
@@ -291,18 +283,18 @@
                 i = Array.from(o).filter((function (t) {
                     return "-1" !== t.getAttribute("tabindex")
                 }));
-            return f(new Set(n.concat(i))).filter((function (t) {
-                return vt(t)
+            return d(new Set(n.concat(i))).filter((function (t) {
+                return ht(t)
             }))
         },
+        G = function () {
+            return et(document.body, C.shown) && !et(document.body, C["toast-shown"]) && !et(document.body, C["no-backdrop"])
+        },
         Q = function () {
-            return nt(document.body, A.shown) && !nt(document.body, A["toast-shown"]) && !nt(document.body, A["no-backdrop"])
+            var t = D();
+            return !!t && et(t, C.toast)
         },
-        tt = function () {
-            var t = q();
-            return !!t && nt(t, A.toast)
-        },
-        et = function (t, e) {
+        tt = function (t, e) {
             if (t.textContent = "", e) {
                 var n = (new DOMParser).parseFromString(e, "text/html"),
                     o = n.querySelector("head");
@@ -315,204 +307,204 @@
                 }))
             }
         },
-        nt = function (t, e) {
+        et = function (t, e) {
             if (!e) return !1;
             for (var n = e.split(/\s+/), o = 0; o < n.length; o++)
                 if (!t.classList.contains(n[o])) return !1;
             return !0
         },
-        ot = function (t, n, o) {
+        nt = function (t, e, n) {
             if (function (t, e) {
                     Array.from(t.classList).forEach((function (n) {
-                        Object.values(A).includes(n) || Object.values(k).includes(n) || Object.values(e.showClass || {}).includes(n) || t.classList.remove(n)
+                        Object.values(C).includes(n) || Object.values(A).includes(n) || Object.values(e.showClass || {}).includes(n) || t.classList.remove(n)
                     }))
-                }(t, n), n.customClass && n.customClass[o]) {
-                if ("string" != typeof n.customClass[o] && !n.customClass[o].forEach) return void B("Invalid type of customClass.".concat(o, '! Expected string or iterable object, got "').concat(e(n.customClass[o]), '"'));
-                ct(t, n.customClass[o])
+                }(t, e), e.customClass && e.customClass[n]) {
+                if ("string" != typeof e.customClass[n] && !e.customClass[n].forEach) return void B("Invalid type of customClass.".concat(n, '! Expected string or iterable object, got "').concat(o(e.customClass[n]), '"'));
+                at(t, e.customClass[n])
             }
         },
-        it = function (t, e) {
+        ot = function (t, e) {
             if (!e) return null;
             switch (e) {
                 case "select":
                 case "textarea":
                 case "file":
-                    return t.querySelector(".".concat(A.popup, " > .").concat(A[e]));
+                    return t.querySelector(".".concat(C.popup, " > .").concat(C[e]));
                 case "checkbox":
-                    return t.querySelector(".".concat(A.popup, " > .").concat(A.checkbox, " input"));
+                    return t.querySelector(".".concat(C.popup, " > .").concat(C.checkbox, " input"));
                 case "radio":
-                    return t.querySelector(".".concat(A.popup, " > .").concat(A.radio, " input:checked")) || t.querySelector(".".concat(A.popup, " > .").concat(A.radio, " input:first-child"));
+                    return t.querySelector(".".concat(C.popup, " > .").concat(C.radio, " input:checked")) || t.querySelector(".".concat(C.popup, " > .").concat(C.radio, " input:first-child"));
                 case "range":
-                    return t.querySelector(".".concat(A.popup, " > .").concat(A.range, " input"));
+                    return t.querySelector(".".concat(C.popup, " > .").concat(C.range, " input"));
                 default:
-                    return t.querySelector(".".concat(A.popup, " > .").concat(A.input))
+                    return t.querySelector(".".concat(C.popup, " > .").concat(C.input))
             }
         },
-        rt = function (t) {
+        it = function (t) {
             if (t.focus(), "file" !== t.type) {
                 var e = t.value;
                 t.value = "", t.value = e
             }
         },
-        at = function (t, e, n) {
+        rt = function (t, e, n) {
             t && e && ("string" == typeof e && (e = e.split(/\s+/).filter(Boolean)), e.forEach((function (e) {
                 Array.isArray(t) ? t.forEach((function (t) {
                     n ? t.classList.add(e) : t.classList.remove(e)
                 })) : n ? t.classList.add(e) : t.classList.remove(e)
             })))
         },
+        at = function (t, e) {
+            rt(t, e, !0)
+        },
         ct = function (t, e) {
-            at(t, e, !0)
+            rt(t, e, !1)
         },
         ut = function (t, e) {
-            at(t, e, !1)
-        },
-        st = function (t, e) {
             for (var n = Array.from(t.children), o = 0; o < n.length; o++) {
                 var i = n[o];
-                if (i instanceof HTMLElement && nt(i, e)) return i
+                if (i instanceof HTMLElement && et(i, e)) return i
             }
         },
-        lt = function (t, e, n) {
+        st = function (t, e, n) {
             n === "".concat(parseInt(n)) && (n = parseInt(n)), n || 0 === parseInt(n) ? t.style.setProperty(e, "number" == typeof n ? "".concat(n, "px") : n) : t.style.removeProperty(e)
         },
-        dt = function (t) {
+        lt = function (t) {
             var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "flex";
             t && (t.style.display = e)
         },
-        ft = function (t) {
+        dt = function (t) {
             t && (t.style.display = "none")
         },
-        pt = function (t) {
+        ft = function (t) {
             var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "block";
             t && new MutationObserver((function () {
-                ht(t, t.innerHTML, e)
+                mt(t, t.innerHTML, e)
             })).observe(t, {
                 childList: !0,
                 subtree: !0
             })
         },
-        mt = function (t, e, n, o) {
+        pt = function (t, e, n, o) {
             var i = t.querySelector(e);
             i && i.style.setProperty(n, o)
         },
-        ht = function (t, e) {
-            e ? dt(t, arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "flex") : ft(t)
+        mt = function (t, e) {
+            e ? lt(t, arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "flex") : dt(t)
         },
-        vt = function (t) {
+        ht = function (t) {
             return !(!t || !(t.offsetWidth || t.offsetHeight || t.getClientRects().length))
         },
-        gt = function (t) {
+        vt = function (t) {
             return !!(t.scrollHeight > t.clientHeight)
         },
-        bt = function (t) {
+        gt = function (t) {
             var e = window.getComputedStyle(t),
                 n = parseFloat(e.getPropertyValue("animation-duration") || "0"),
                 o = parseFloat(e.getPropertyValue("transition-duration") || "0");
             return n > 0 || o > 0
         },
-        yt = function (t) {
+        bt = function (t) {
             var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-                n = J();
-            n && vt(n) && (e && (n.style.transition = "none", n.style.width = "100%"), setTimeout((function () {
+                n = $();
+            n && ht(n) && (e && (n.style.transition = "none", n.style.width = "100%"), setTimeout((function () {
                 n.style.transition = "width ".concat(t / 1e3, "s linear"), n.style.width = "0%"
             }), 10))
         },
-        wt = function () {
+        yt = function () {
             return "undefined" == typeof window || "undefined" == typeof document
         },
-        Ct = '\n <div aria-labelledby="'.concat(A.title, '" aria-describedby="').concat(A["html-container"], '" class="').concat(A.popup, '" tabindex="-1">\n   <button type="button" class="').concat(A.close, '"></button>\n   <ul class="').concat(A["progress-steps"], '"></ul>\n   <div class="').concat(A.icon, '"></div>\n   <img class="').concat(A.image, '" />\n   <h2 class="').concat(A.title, '" id="').concat(A.title, '"></h2>\n   <div class="').concat(A["html-container"], '" id="').concat(A["html-container"], '"></div>\n   <input class="').concat(A.input, '" id="').concat(A.input, '" />\n   <input type="file" class="').concat(A.file, '" />\n   <div class="').concat(A.range, '">\n     <input type="range" />\n     <output></output>\n   </div>\n   <select class="').concat(A.select, '" id="').concat(A.select, '"></select>\n   <div class="').concat(A.radio, '"></div>\n   <label class="').concat(A.checkbox, '">\n     <input type="checkbox" id="').concat(A.checkbox, '" />\n     <span class="').concat(A.label, '"></span>\n   </label>\n   <textarea class="').concat(A.textarea, '" id="').concat(A.textarea, '"></textarea>\n   <div class="').concat(A["validation-message"], '" id="').concat(A["validation-message"], '"></div>\n   <div class="').concat(A.actions, '">\n     <div class="').concat(A.loader, '"></div>\n     <button type="button" class="').concat(A.confirm, '"></button>\n     <button type="button" class="').concat(A.deny, '"></button>\n     <button type="button" class="').concat(A.cancel, '"></button>\n   </div>\n   <div class="').concat(A.footer, '"></div>\n   <div class="').concat(A["timer-progress-bar-container"], '">\n     <div class="').concat(A["timer-progress-bar"], '"></div>\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, ""),
-        At = function () {
-            y.currentInstance.resetValidationMessage()
+        wt = '\n <div aria-labelledby="'.concat(C.title, '" aria-describedby="').concat(C["html-container"], '" class="').concat(C.popup, '" tabindex="-1">\n   <button type="button" class="').concat(C.close, '"></button>\n   <ul class="').concat(C["progress-steps"], '"></ul>\n   <div class="').concat(C.icon, '"></div>\n   <img class="').concat(C.image, '" />\n   <h2 class="').concat(C.title, '" id="').concat(C.title, '"></h2>\n   <div class="').concat(C["html-container"], '" id="').concat(C["html-container"], '"></div>\n   <input class="').concat(C.input, '" id="').concat(C.input, '" />\n   <input type="file" class="').concat(C.file, '" />\n   <div class="').concat(C.range, '">\n     <input type="range" />\n     <output></output>\n   </div>\n   <select class="').concat(C.select, '" id="').concat(C.select, '"></select>\n   <div class="').concat(C.radio, '"></div>\n   <label class="').concat(C.checkbox, '">\n     <input type="checkbox" id="').concat(C.checkbox, '" />\n     <span class="').concat(C.label, '"></span>\n   </label>\n   <textarea class="').concat(C.textarea, '" id="').concat(C.textarea, '"></textarea>\n   <div class="').concat(C["validation-message"], '" id="').concat(C["validation-message"], '"></div>\n   <div class="').concat(C.actions, '">\n     <div class="').concat(C.loader, '"></div>\n     <button type="button" class="').concat(C.confirm, '"></button>\n     <button type="button" class="').concat(C.deny, '"></button>\n     <button type="button" class="').concat(C.cancel, '"></button>\n   </div>\n   <div class="').concat(C.footer, '"></div>\n   <div class="').concat(C["timer-progress-bar-container"], '">\n     <div class="').concat(C["timer-progress-bar"], '"></div>\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, ""),
+        Ct = function () {
+            b.currentInstance.resetValidationMessage()
         },
-        kt = function (t) {
-            var e, n = !!(e = I()) && (e.remove(), ut([document.documentElement, document.body], [A["no-backdrop"], A["toast-shown"], A["has-column"]]), !0);
-            if (wt()) T("SweetAlert2 requires document to initialize");
+        At = function (t) {
+            var e, n = !!(e = M()) && (e.remove(), ct([document.documentElement, document.body], [C["no-backdrop"], C["toast-shown"], C["has-column"]]), !0);
+            if (yt()) P("SweetAlert2 requires document to initialize");
             else {
                 var o = document.createElement("div");
-                o.className = A.container, n && ct(o, A["no-transition"]), et(o, Ct);
+                o.className = C.container, n && at(o, C["no-transition"]), tt(o, wt);
                 var i, r, a, c, u, s, l, d, f, p = "string" == typeof (i = t.target) ? document.querySelector(i) : i;
                 p.appendChild(o),
                     function (t) {
-                        var e = q();
+                        var e = D();
                         e.setAttribute("role", t.toast ? "alert" : "dialog"), e.setAttribute("aria-live", t.toast ? "polite" : "assertive"), t.toast || e.setAttribute("aria-modal", "true")
                     }(t),
                     function (t) {
-                        "rtl" === window.getComputedStyle(t).direction && ct(I(), A.rtl)
-                    }(p), r = q(), a = st(r, A.input), c = st(r, A.file), u = r.querySelector(".".concat(A.range, " input")), s = r.querySelector(".".concat(A.range, " output")), l = st(r, A.select), d = r.querySelector(".".concat(A.checkbox, " input")), f = st(r, A.textarea), a.oninput = At, c.onchange = At, l.onchange = At, d.onchange = At, f.oninput = At, u.oninput = function () {
-                        At(), s.value = u.value
+                        "rtl" === window.getComputedStyle(t).direction && at(M(), C.rtl)
+                    }(p), r = D(), a = ut(r, C.input), c = ut(r, C.file), u = r.querySelector(".".concat(C.range, " input")), s = r.querySelector(".".concat(C.range, " output")), l = ut(r, C.select), d = r.querySelector(".".concat(C.checkbox, " input")), f = ut(r, C.textarea), a.oninput = Ct, c.onchange = Ct, l.onchange = Ct, d.onchange = Ct, f.oninput = Ct, u.oninput = function () {
+                        Ct(), s.value = u.value
                     }, u.onchange = function () {
-                        At(), s.value = u.value
+                        Ct(), s.value = u.value
                     }
             }
         },
-        Et = function (t, n) {
-            t instanceof HTMLElement ? n.appendChild(t) : "object" === e(t) ? Pt(t, n) : t && et(n, t)
+        kt = function (t, e) {
+            t instanceof HTMLElement ? e.appendChild(t) : "object" === o(t) ? Et(t, e) : t && tt(e, t)
         },
-        Pt = function (t, e) {
-            t.jquery ? Bt(e, t) : et(e, t.toString())
+        Et = function (t, e) {
+            t.jquery ? Bt(e, t) : tt(e, t.toString())
         },
         Bt = function (t, e) {
             if (t.textContent = "", 0 in e)
                 for (var n = 0; n in e; n++) t.appendChild(e[n].cloneNode(!0));
             else t.appendChild(e.cloneNode(!0))
         },
-        Tt = function () {
-            if (wt()) return !1;
+        Pt = function () {
+            if (yt()) return !1;
             var t = document.createElement("div");
             return void 0 !== t.style.webkitAnimation ? "webkitAnimationEnd" : void 0 !== t.style.animation && "animationend"
         }(),
-        xt = function (t, e) {
-            var n = Z(),
-                o = Y();
-            n && o && (e.showConfirmButton || e.showDenyButton || e.showCancelButton ? dt(n) : ft(n), ot(n, e, "actions"), function (t, e, n) {
-                var o = z(),
-                    i = K(),
-                    r = W();
+        Tt = function (t, e) {
+            var n = Y(),
+                o = K();
+            n && o && (e.showConfirmButton || e.showDenyButton || e.showCancelButton ? lt(n) : dt(n), nt(n, e, "actions"), function (t, e, n) {
+                var o = U(),
+                    i = W(),
+                    r = z();
                 if (!o || !i || !r) return;
-                St(o, "confirm", n), St(i, "deny", n), St(r, "cancel", n),
+                xt(o, "confirm", n), xt(i, "deny", n), xt(r, "cancel", n),
                     function (t, e, n, o) {
-                        if (!o.buttonsStyling) return void ut([t, e, n], A.styled);
-                        ct([t, e, n], A.styled), o.confirmButtonColor && (t.style.backgroundColor = o.confirmButtonColor, ct(t, A["default-outline"]));
-                        o.denyButtonColor && (e.style.backgroundColor = o.denyButtonColor, ct(e, A["default-outline"]));
-                        o.cancelButtonColor && (n.style.backgroundColor = o.cancelButtonColor, ct(n, A["default-outline"]))
+                        if (!o.buttonsStyling) return void ct([t, e, n], C.styled);
+                        at([t, e, n], C.styled), o.confirmButtonColor && (t.style.backgroundColor = o.confirmButtonColor, at(t, C["default-outline"]));
+                        o.denyButtonColor && (e.style.backgroundColor = o.denyButtonColor, at(e, C["default-outline"]));
+                        o.cancelButtonColor && (n.style.backgroundColor = o.cancelButtonColor, at(n, C["default-outline"]))
                     }(o, i, r, n), n.reverseButtons && (n.toast ? (t.insertBefore(r, o), t.insertBefore(i, o)) : (t.insertBefore(r, e), t.insertBefore(i, e), t.insertBefore(o, e)))
-            }(n, o, e), et(o, e.loaderHtml || ""), ot(o, e, "loader"))
+            }(n, o, e), tt(o, e.loaderHtml || ""), nt(o, e, "loader"))
         };
 
-    function St(t, e, n) {
-        var o = P(e);
-        ht(t, n["show".concat(o, "Button")], "inline-block"), et(t, n["".concat(e, "ButtonText")] || ""), t.setAttribute("aria-label", n["".concat(e, "ButtonAriaLabel")] || ""), t.className = A[e], ot(t, n, "".concat(e, "Button"))
+    function xt(t, e, n) {
+        var o = E(e);
+        mt(t, n["show".concat(o, "Button")], "inline-block"), tt(t, n["".concat(e, "ButtonText")] || ""), t.setAttribute("aria-label", n["".concat(e, "ButtonAriaLabel")] || ""), t.className = C[e], nt(t, n, "".concat(e, "Button"))
     }
-    var Ot = function (t, e) {
-        var n = I();
+    var St = function (t, e) {
+        var n = M();
         n && (! function (t, e) {
-            "string" == typeof e ? t.style.background = e : e || ct([document.documentElement, document.body], A["no-backdrop"])
+            "string" == typeof e ? t.style.background = e : e || at([document.documentElement, document.body], C["no-backdrop"])
         }(n, e.backdrop), function (t, e) {
             if (!e) return;
-            e in A ? ct(t, A[e]) : (B('The "position" parameter is not valid, defaulting to "center"'), ct(t, A.center))
+            e in C ? at(t, C[e]) : (B('The "position" parameter is not valid, defaulting to "center"'), at(t, C.center))
         }(n, e.position), function (t, e) {
             if (!e) return;
-            ct(t, A["grow-".concat(e)])
-        }(n, e.grow), ot(n, e, "container"))
+            at(t, C["grow-".concat(e)])
+        }(n, e.grow), nt(n, e, "container"))
     };
-    var Lt = {
+    var Ot = {
             innerParams: new WeakMap,
             domCache: new WeakMap
         },
-        jt = ["input", "file", "range", "select", "radio", "checkbox", "textarea"],
-        Mt = function (t) {
+        Lt = ["input", "file", "range", "select", "radio", "checkbox", "textarea"],
+        jt = function (t) {
             if (t.input)
                 if (_t[t.input]) {
-                    var e = Vt(t.input),
+                    var e = qt(t.input),
                         n = _t[t.input](e, t);
-                    dt(e), t.inputAutoFocus && setTimeout((function () {
-                        rt(n)
+                    lt(e), t.inputAutoFocus && setTimeout((function () {
+                        it(n)
                     }))
-                } else T("Unexpected type of input! Expected ".concat(Object.keys(_t).join(" | "), ', got "').concat(t.input, '"'))
+                } else P("Unexpected type of input! Expected ".concat(Object.keys(_t).join(" | "), ', got "').concat(t.input, '"'))
         },
-        It = function (t, e) {
-            var n = it(q(), t);
+        Mt = function (t, e) {
+            var n = ot(D(), t);
             if (n)
                 for (var o in function (t) {
                         for (var e = 0; e < t.attributes.length; e++) {
@@ -521,57 +513,57 @@
                         }
                     }(n), e) n.setAttribute(o, e[o])
         },
-        Ht = function (t) {
-            var n = Vt(t.input);
-            "object" === e(t.customClass) && ct(n, t.customClass.input)
+        It = function (t) {
+            var e = qt(t.input);
+            "object" === o(t.customClass) && at(e, t.customClass.input)
         },
-        Dt = function (t, e) {
+        Ht = function (t, e) {
             t.placeholder && !e.inputPlaceholder || (t.placeholder = e.inputPlaceholder)
         },
-        qt = function (t, n, o) {
-            if (o.inputLabel) {
+        Dt = function (t, e, n) {
+            if (n.inputLabel) {
                 var i = document.createElement("label"),
-                    r = A["input-label"];
-                i.setAttribute("for", t.id), i.className = r, "object" === e(o.customClass) && ct(i, o.customClass.inputLabel), i.innerText = o.inputLabel, n.insertAdjacentElement("beforebegin", i)
+                    r = C["input-label"];
+                i.setAttribute("for", t.id), i.className = r, "object" === o(n.customClass) && at(i, n.customClass.inputLabel), i.innerText = n.inputLabel, e.insertAdjacentElement("beforebegin", i)
             }
         },
-        Vt = function (t) {
-            return st(q(), A[t] || A.input)
+        qt = function (t) {
+            return ut(D(), C[t] || C.input)
         },
-        Rt = function (t, n) {
-            ["string", "number"].includes(e(n)) ? t.value = "".concat(n) : M(n) || B('Unexpected type of inputValue! Expected "string", "number" or "Promise", got "'.concat(e(n), '"'))
+        Vt = function (t, e) {
+            ["string", "number"].includes(o(e)) ? t.value = "".concat(e) : j(e) || B('Unexpected type of inputValue! Expected "string", "number" or "Promise", got "'.concat(o(e), '"'))
         },
         _t = {};
     _t.text = _t.email = _t.password = _t.number = _t.tel = _t.url = _t.search = _t.date = _t["datetime-local"] = _t.time = _t.week = _t.month = function (t, e) {
-        return Rt(t, e.inputValue), qt(t, t, e), Dt(t, e), t.type = e.input, t
+        return Vt(t, e.inputValue), Dt(t, t, e), Ht(t, e), t.type = e.input, t
     }, _t.file = function (t, e) {
-        return qt(t, t, e), Dt(t, e), t
+        return Dt(t, t, e), Ht(t, e), t
     }, _t.range = function (t, e) {
         var n = t.querySelector("input"),
             o = t.querySelector("output");
-        return Rt(n, e.inputValue), n.type = e.input, Rt(o, e.inputValue), qt(n, t, e), t
+        return Vt(n, e.inputValue), n.type = e.input, Vt(o, e.inputValue), Dt(n, t, e), t
     }, _t.select = function (t, e) {
         if (t.textContent = "", e.inputPlaceholder) {
             var n = document.createElement("option");
-            et(n, e.inputPlaceholder), n.value = "", n.disabled = !0, n.selected = !0, t.appendChild(n)
+            tt(n, e.inputPlaceholder), n.value = "", n.disabled = !0, n.selected = !0, t.appendChild(n)
         }
-        return qt(t, t, e), t
+        return Dt(t, t, e), t
     }, _t.radio = function (t) {
         return t.textContent = "", t
     }, _t.checkbox = function (t, e) {
-        var n = it(q(), "checkbox");
+        var n = ot(D(), "checkbox");
         n.value = "1", n.checked = Boolean(e.inputValue);
         var o = t.querySelector("span");
-        return et(o, e.inputPlaceholder), n
+        return tt(o, e.inputPlaceholder), n
     }, _t.textarea = function (t, e) {
-        Rt(t, e.inputValue), Dt(t, e), qt(t, t, e);
+        Vt(t, e.inputValue), Ht(t, e), Dt(t, t, e);
         return setTimeout((function () {
             if ("MutationObserver" in window) {
-                var n = parseInt(window.getComputedStyle(q()).width);
+                var n = parseInt(window.getComputedStyle(D()).width);
                 new MutationObserver((function () {
                     if (document.body.contains(t)) {
                         var o, i = t.offsetWidth + (o = t, parseInt(window.getComputedStyle(o).marginLeft) + parseInt(window.getComputedStyle(o).marginRight));
-                        i > n ? q().style.width = "".concat(i, "px") : lt(q(), "width", e.width)
+                        i > n ? D().style.width = "".concat(i, "px") : st(D(), "width", e.width)
                     }
                 })).observe(t, {
                     attributes: !0,
@@ -580,272 +572,272 @@
             }
         })), t
     };
-    var Nt = function (t, e) {
+    var Rt = function (t, e) {
             var n = _();
-            n && (pt(n), ot(n, e, "htmlContainer"), e.html ? (Et(e.html, n), dt(n, "block")) : e.text ? (n.textContent = e.text, dt(n, "block")) : ft(n), function (t, e) {
-                var n = q();
+            n && (ft(n), nt(n, e, "htmlContainer"), e.html ? (kt(e.html, n), lt(n, "block")) : e.text ? (n.textContent = e.text, lt(n, "block")) : dt(n), function (t, e) {
+                var n = D();
                 if (n) {
-                    var o = Lt.innerParams.get(t),
+                    var o = Ot.innerParams.get(t),
                         i = !o || e.input !== o.input;
-                    jt.forEach((function (t) {
-                        var o = st(n, A[t]);
-                        o && (It(t, e.inputAttributes), o.className = A[t], i && ft(o))
-                    })), e.input && (i && Mt(e), Ht(e))
+                    Lt.forEach((function (t) {
+                        var o = ut(n, C[t]);
+                        o && (Mt(t, e.inputAttributes), o.className = C[t], i && dt(o))
+                    })), e.input && (i && jt(e), It(e))
                 }
             }(t, e))
         },
-        Ft = function (t, e) {
-            for (var n = 0, o = Object.entries(k); n < o.length; n++) {
-                var i = d(o[n], 2),
+        Nt = function (t, e) {
+            for (var n = 0, o = Object.entries(A); n < o.length; n++) {
+                var i = l(o[n], 2),
                     r = i[0],
                     a = i[1];
-                e.icon !== r && ut(t, a)
+                e.icon !== r && ct(t, a)
             }
-            ct(t, e.icon && k[e.icon]), Wt(t, e), Ut(), ot(t, e, "icon")
+            at(t, e.icon && A[e.icon]), zt(t, e), Ft(), nt(t, e, "icon")
         },
-        Ut = function () {
-            var t = q();
+        Ft = function () {
+            var t = D();
             if (t)
                 for (var e = window.getComputedStyle(t).getPropertyValue("background-color"), n = t.querySelectorAll("[class^=swal2-success-circular-line], .swal2-success-fix"), o = 0; o < n.length; o++) n[o].style.backgroundColor = e
         },
-        zt = function (t, e) {
+        Ut = function (t, e) {
             if (e.icon || e.iconHtml) {
                 var n = t.innerHTML,
                     o = "";
-                if (e.iconHtml) o = Kt(e.iconHtml);
+                if (e.iconHtml) o = Wt(e.iconHtml);
                 else if ("success" === e.icon) o = '\n  <div class="swal2-success-circular-line-left"></div>\n  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n  <div class="swal2-success-circular-line-right"></div>\n', n = n.replace(/ style=".*?"/g, "");
                 else if ("error" === e.icon) o = '\n  <span class="swal2-x-mark">\n    <span class="swal2-x-mark-line-left"></span>\n    <span class="swal2-x-mark-line-right"></span>\n  </span>\n';
                 else if (e.icon) {
-                    o = Kt({
+                    o = Wt({
                         question: "?",
                         warning: "!",
                         info: "i"
                     } [e.icon])
                 }
-                n.trim() !== o.trim() && et(t, o)
+                n.trim() !== o.trim() && tt(t, o)
             }
         },
-        Wt = function (t, e) {
+        zt = function (t, e) {
             if (e.iconColor) {
                 t.style.color = e.iconColor, t.style.borderColor = e.iconColor;
                 for (var n = 0, o = [".swal2-success-line-tip", ".swal2-success-line-long", ".swal2-x-mark-line-left", ".swal2-x-mark-line-right"]; n < o.length; n++) {
-                    mt(t, o[n], "backgroundColor", e.iconColor)
+                    pt(t, o[n], "background-color", e.iconColor)
                 }
-                mt(t, ".swal2-success-ring", "borderColor", e.iconColor)
+                pt(t, ".swal2-success-ring", "border-color", e.iconColor)
             }
         },
-        Kt = function (t) {
-            return '<div class="'.concat(A["icon-content"], '">').concat(t, "</div>")
+        Wt = function (t) {
+            return '<div class="'.concat(C["icon-content"], '">').concat(t, "</div>")
         },
-        Yt = function (t, e) {
+        Kt = function (t, e) {
             var n = e.showClass || {};
-            t.className = "".concat(A.popup, " ").concat(vt(t) ? n.popup : ""), e.toast ? (ct([document.documentElement, document.body], A["toast-shown"]), ct(t, A.toast)) : ct(t, A.modal), ot(t, e, "popup"), "string" == typeof e.customClass && ct(t, e.customClass), e.icon && ct(t, A["icon-".concat(e.icon)])
+            t.className = "".concat(C.popup, " ").concat(ht(t) ? n.popup : ""), e.toast ? (at([document.documentElement, document.body], C["toast-shown"]), at(t, C.toast)) : at(t, C.modal), nt(t, e, "popup"), "string" == typeof e.customClass && at(t, e.customClass), e.icon && at(t, C["icon-".concat(e.icon)])
+        },
+        Yt = function (t) {
+            var e = document.createElement("li");
+            return at(e, C["progress-step"]), tt(e, t), e
         },
         Zt = function (t) {
             var e = document.createElement("li");
-            return ct(e, A["progress-step"]), et(e, t), e
+            return at(e, C["progress-step-line"]), t.progressStepsDistance && st(e, "width", t.progressStepsDistance), e
         },
-        $t = function (t) {
-            var e = document.createElement("li");
-            return ct(e, A["progress-step-line"]), t.progressStepsDistance && lt(e, "width", t.progressStepsDistance), e
-        },
-        Jt = function (t, e) {
+        $t = function (t, e) {
             ! function (t, e) {
-                var n = I(),
-                    o = q();
+                var n = M(),
+                    o = D();
                 if (n && o) {
                     if (e.toast) {
-                        lt(n, "width", e.width), o.style.width = "100%";
-                        var i = Y();
-                        i && o.insertBefore(i, V())
-                    } else lt(o, "width", e.width);
-                    lt(o, "padding", e.padding), e.color && (o.style.color = e.color), e.background && (o.style.background = e.background), ft(U()), Yt(o, e)
+                        st(n, "width", e.width), o.style.width = "100%";
+                        var i = K();
+                        i && o.insertBefore(i, q())
+                    } else st(o, "width", e.width);
+                    st(o, "padding", e.padding), e.color && (o.style.color = e.color), e.background && (o.style.background = e.background), dt(F()), Kt(o, e)
                 }
-            }(0, e), Ot(0, e),
+            }(0, e), St(0, e),
                 function (t, e) {
-                    var n = F();
+                    var n = N();
                     if (n) {
                         var o = e.progressSteps,
                             i = e.currentProgressStep;
-                        o && 0 !== o.length && void 0 !== i ? (dt(n), n.textContent = "", i >= o.length && B("Invalid currentProgressStep parameter, it should be less than progressSteps.length (currentProgressStep like JS arrays starts from 0)"), o.forEach((function (t, r) {
-                            var a = Zt(t);
-                            if (n.appendChild(a), r === i && ct(a, A["active-progress-step"]), r !== o.length - 1) {
-                                var c = $t(e);
+                        o && 0 !== o.length && void 0 !== i ? (lt(n), n.textContent = "", i >= o.length && B("Invalid currentProgressStep parameter, it should be less than progressSteps.length (currentProgressStep like JS arrays starts from 0)"), o.forEach((function (t, r) {
+                            var a = Yt(t);
+                            if (n.appendChild(a), r === i && at(a, C["active-progress-step"]), r !== o.length - 1) {
+                                var c = Zt(e);
                                 n.appendChild(c)
                             }
-                        }))) : ft(n)
+                        }))) : dt(n)
                     }
                 }(0, e),
                 function (t, e) {
-                    var n = Lt.innerParams.get(t),
-                        o = V();
+                    var n = Ot.innerParams.get(t),
+                        o = q();
                     if (o) {
-                        if (n && e.icon === n.icon) return zt(o, e), void Ft(o, e);
+                        if (n && e.icon === n.icon) return Ut(o, e), void Nt(o, e);
                         if (e.icon || e.iconHtml) {
-                            if (e.icon && -1 === Object.keys(k).indexOf(e.icon)) return T('Unknown icon! Expected "success", "error", "warning", "info" or "question", got "'.concat(e.icon, '"')), void ft(o);
-                            dt(o), zt(o, e), Ft(o, e), ct(o, e.showClass && e.showClass.icon)
-                        } else ft(o)
+                            if (e.icon && -1 === Object.keys(A).indexOf(e.icon)) return P('Unknown icon! Expected "success", "error", "warning", "info" or "question", got "'.concat(e.icon, '"')), void dt(o);
+                            lt(o), Ut(o, e), Nt(o, e), at(o, e.showClass && e.showClass.icon)
+                        } else dt(o)
                     }
                 }(t, e),
                 function (t, e) {
-                    var n = N();
-                    n && (e.imageUrl ? (dt(n, ""), n.setAttribute("src", e.imageUrl), n.setAttribute("alt", e.imageAlt || ""), lt(n, "width", e.imageWidth), lt(n, "height", e.imageHeight), n.className = A.image, ot(n, e, "image")) : ft(n))
-                }(0, e),
-                function (t, e) {
                     var n = R();
-                    n && (pt(n), ht(n, e.title || e.titleText, "block"), e.title && Et(e.title, n), e.titleText && (n.innerText = e.titleText), ot(n, e, "title"))
+                    n && (e.imageUrl ? (lt(n, ""), n.setAttribute("src", e.imageUrl), n.setAttribute("alt", e.imageAlt || ""), st(n, "width", e.imageWidth), st(n, "height", e.imageHeight), n.className = C.image, nt(n, e, "image")) : dt(n))
                 }(0, e),
                 function (t, e) {
-                    var n = X();
-                    n && (et(n, e.closeButtonHtml || ""), ot(n, e, "closeButton"), ht(n, e.showCloseButton), n.setAttribute("aria-label", e.closeButtonAriaLabel || ""))
-                }(0, e), Nt(t, e), xt(0, e),
+                    var n = V();
+                    n && (ft(n), mt(n, e.title || e.titleText, "block"), e.title && kt(e.title, n), e.titleText && (n.innerText = e.titleText), nt(n, e, "title"))
+                }(0, e),
                 function (t, e) {
-                    var n = $();
-                    n && (pt(n), ht(n, e.footer, "block"), e.footer && Et(e.footer, n), ot(n, e, "footer"))
+                    var n = J();
+                    n && (tt(n, e.closeButtonHtml || ""), nt(n, e, "closeButton"), mt(n, e.showCloseButton), n.setAttribute("aria-label", e.closeButtonAriaLabel || ""))
+                }(0, e), Rt(t, e), Tt(0, e),
+                function (t, e) {
+                    var n = Z();
+                    n && (ft(n), mt(n, e.footer, "block"), e.footer && kt(e.footer, n), nt(n, e, "footer"))
                 }(0, e);
-            var n = q();
+            var n = D();
             "function" == typeof e.didRender && n && e.didRender(n)
         },
-        Xt = function () {
+        Jt = function () {
             var t;
-            return null === (t = z()) || void 0 === t ? void 0 : t.click()
+            return null === (t = U()) || void 0 === t ? void 0 : t.click()
         },
-        Gt = Object.freeze({
+        Xt = Object.freeze({
             cancel: "cancel",
             backdrop: "backdrop",
             close: "close",
             esc: "esc",
             timer: "timer"
         }),
-        Qt = function (t) {
+        Gt = function (t) {
             t.keydownTarget && t.keydownHandlerAdded && (t.keydownTarget.removeEventListener("keydown", t.keydownHandler, {
                 capture: t.keydownListenerCapture
             }), t.keydownHandlerAdded = !1)
         },
-        te = function (t, e) {
-            var n, o = G();
+        Qt = function (t, e) {
+            var n, o = X();
             if (o.length) return (t += e) === o.length ? t = 0 : -1 === t && (t = o.length - 1), void o[t].focus();
-            null === (n = q()) || void 0 === n || n.focus()
+            null === (n = D()) || void 0 === n || n.focus()
         },
-        ee = ["ArrowRight", "ArrowDown"],
-        ne = ["ArrowLeft", "ArrowUp"],
-        oe = function (t, e, n) {
-            t && (e.isComposing || 229 === e.keyCode || (t.stopKeydownPropagation && e.stopPropagation(), "Enter" === e.key ? ie(e, t) : "Tab" === e.key ? re(e) : [].concat(ee, ne).includes(e.key) ? ae(e.key) : "Escape" === e.key && ce(e, t, n)))
+        te = ["ArrowRight", "ArrowDown"],
+        ee = ["ArrowLeft", "ArrowUp"],
+        ne = function (t, e, n) {
+            t && (e.isComposing || 229 === e.keyCode || (t.stopKeydownPropagation && e.stopPropagation(), "Enter" === e.key ? oe(e, t) : "Tab" === e.key ? ie(e) : [].concat(te, ee).includes(e.key) ? re(e.key) : "Escape" === e.key && ae(e, t, n)))
         },
-        ie = function (t, e) {
-            if (O(e.allowEnterKey)) {
-                var n = it(q(), e.input);
+        oe = function (t, e) {
+            if (S(e.allowEnterKey)) {
+                var n = ot(D(), e.input);
                 if (t.target && n && t.target instanceof HTMLElement && t.target.outerHTML === n.outerHTML) {
                     if (["textarea", "file"].includes(e.input)) return;
-                    Xt(), t.preventDefault()
+                    Jt(), t.preventDefault()
                 }
             }
         },
-        re = function (t) {
-            for (var e = t.target, n = G(), o = -1, i = 0; i < n.length; i++)
+        ie = function (t) {
+            for (var e = t.target, n = X(), o = -1, i = 0; i < n.length; i++)
                 if (e === n[i]) {
                     o = i;
                     break
-                } t.shiftKey ? te(o, -1) : te(o, 1), t.stopPropagation(), t.preventDefault()
+                } t.shiftKey ? Qt(o, -1) : Qt(o, 1), t.stopPropagation(), t.preventDefault()
         },
-        ae = function (t) {
-            var e = Z(),
-                n = z(),
-                o = K(),
-                i = W();
+        re = function (t) {
+            var e = Y(),
+                n = U(),
+                o = W(),
+                i = z();
             if (e && n && o && i) {
                 var r = [n, o, i];
                 if (!(document.activeElement instanceof HTMLElement) || r.includes(document.activeElement)) {
-                    var a = ee.includes(t) ? "nextElementSibling" : "previousElementSibling",
+                    var a = te.includes(t) ? "nextElementSibling" : "previousElementSibling",
                         c = document.activeElement;
                     if (c) {
                         for (var u = 0; u < e.children.length; u++) {
                             if (!(c = c[a])) return;
-                            if (c instanceof HTMLButtonElement && vt(c)) break
+                            if (c instanceof HTMLButtonElement && ht(c)) break
                         }
                         c instanceof HTMLButtonElement && c.focus()
                     }
                 }
             }
         },
-        ce = function (t, e, n) {
-            O(e.allowEscapeKey) && (t.preventDefault(), n(Gt.esc))
+        ae = function (t, e, n) {
+            S(e.allowEscapeKey) && (t.preventDefault(), n(Xt.esc))
         },
-        ue = {
+        ce = {
             swalPromiseResolve: new WeakMap,
             swalPromiseReject: new WeakMap
         },
-        se = function () {
+        ue = function () {
             Array.from(document.body.children).forEach((function (t) {
                 t.hasAttribute("data-previous-aria-hidden") ? (t.setAttribute("aria-hidden", t.getAttribute("data-previous-aria-hidden") || ""), t.removeAttribute("data-previous-aria-hidden")) : t.removeAttribute("aria-hidden")
             }))
         },
-        le = "undefined" != typeof window && !!window.GestureEvent,
-        de = function () {
-            var t, e = I();
+        se = "undefined" != typeof window && !!window.GestureEvent,
+        le = function () {
+            var t, e = M();
             e && (e.ontouchstart = function (e) {
-                t = fe(e)
+                t = de(e)
             }, e.ontouchmove = function (e) {
                 t && (e.preventDefault(), e.stopPropagation())
             })
         },
-        fe = function (t) {
+        de = function (t) {
             var e = t.target,
-                n = I(),
+                n = M(),
                 o = _();
-            return !(!n || !o) && (!pe(t) && !me(t) && (e === n || !gt(n) && e instanceof HTMLElement && "INPUT" !== e.tagName && "TEXTAREA" !== e.tagName && (!gt(o) || !o.contains(e))))
+            return !(!n || !o) && (!fe(t) && !pe(t) && (e === n || !vt(n) && e instanceof HTMLElement && "INPUT" !== e.tagName && "TEXTAREA" !== e.tagName && (!vt(o) || !o.contains(e))))
         },
-        pe = function (t) {
+        fe = function (t) {
             return t.touches && t.touches.length && "stylus" === t.touches[0].touchType
         },
-        me = function (t) {
+        pe = function (t) {
             return t.touches && t.touches.length > 1
         },
-        he = null,
-        ve = function (t) {
-            null === he && (document.body.scrollHeight > window.innerHeight || "scroll" === t) && (he = parseInt(window.getComputedStyle(document.body).getPropertyValue("padding-right")), document.body.style.paddingRight = "".concat(he + function () {
+        me = null,
+        he = function (t) {
+            null === me && (document.body.scrollHeight > window.innerHeight || "scroll" === t) && (me = parseInt(window.getComputedStyle(document.body).getPropertyValue("padding-right")), document.body.style.paddingRight = "".concat(me + function () {
                 var t = document.createElement("div");
-                t.className = A["scrollbar-measure"], document.body.appendChild(t);
+                t.className = C["scrollbar-measure"], document.body.appendChild(t);
                 var e = t.getBoundingClientRect().width - t.clientWidth;
                 return document.body.removeChild(t), e
             }(), "px"))
         };
 
-    function ge(t, e, n, o) {
-        tt() ? Pe(t, o) : (w(n).then((function () {
-            return Pe(t, o)
-        })), Qt(y)), le ? (e.setAttribute("style", "display:none !important"), e.removeAttribute("class"), e.innerHTML = "") : e.remove(), Q() && (null !== he && (document.body.style.paddingRight = "".concat(he, "px"), he = null), function () {
-            if (nt(document.body, A.iosfix)) {
+    function ve(t, e, n, o) {
+        Q() ? Ee(t, o) : (y(n).then((function () {
+            return Ee(t, o)
+        })), Gt(b)), se ? (e.setAttribute("style", "display:none !important"), e.removeAttribute("class"), e.innerHTML = "") : e.remove(), G() && (null !== me && (document.body.style.paddingRight = "".concat(me, "px"), me = null), function () {
+            if (et(document.body, C.iosfix)) {
                 var t = parseInt(document.body.style.top, 10);
-                ut(document.body, A.iosfix), document.body.style.top = "", document.body.scrollTop = -1 * t
+                ct(document.body, C.iosfix), document.body.style.top = "", document.body.scrollTop = -1 * t
             }
-        }(), se()), ut([document.documentElement, document.body], [A.shown, A["height-auto"], A["no-backdrop"], A["toast-shown"]])
+        }(), ue()), ct([document.documentElement, document.body], [C.shown, C["height-auto"], C["no-backdrop"], C["toast-shown"]])
     }
 
-    function be(t) {
-        t = Ae(t);
-        var e = ue.swalPromiseResolve.get(this),
-            n = ye(this);
-        this.isAwaitingPromise ? t.isDismissed || (Ce(this), e(t)) : n && e(t)
+    function ge(t) {
+        t = Ce(t);
+        var e = ce.swalPromiseResolve.get(this),
+            n = be(this);
+        this.isAwaitingPromise ? t.isDismissed || (we(this), e(t)) : n && e(t)
     }
-    var ye = function (t) {
-        var e = q();
+    var be = function (t) {
+        var e = D();
         if (!e) return !1;
-        var n = Lt.innerParams.get(t);
-        if (!n || nt(e, n.hideClass.popup)) return !1;
-        ut(e, n.showClass.popup), ct(e, n.hideClass.popup);
-        var o = I();
-        return ut(o, n.showClass.backdrop), ct(o, n.hideClass.backdrop), ke(t, e, n), !0
+        var n = Ot.innerParams.get(t);
+        if (!n || et(e, n.hideClass.popup)) return !1;
+        ct(e, n.showClass.popup), at(e, n.hideClass.popup);
+        var o = M();
+        return ct(o, n.showClass.backdrop), at(o, n.hideClass.backdrop), Ae(t, e, n), !0
     };
 
-    function we(t) {
-        var e = ue.swalPromiseReject.get(this);
-        Ce(this), e && e(t)
+    function ye(t) {
+        var e = ce.swalPromiseReject.get(this);
+        we(this), e && e(t)
     }
-    var Ce = function (t) {
-            t.isAwaitingPromise && (delete t.isAwaitingPromise, Lt.innerParams.get(t) || t._destroy())
+    var we = function (t) {
+            t.isAwaitingPromise && (delete t.isAwaitingPromise, Ot.innerParams.get(t) || t._destroy())
         },
-        Ae = function (t) {
+        Ce = function (t) {
             return void 0 === t ? {
                 isConfirmed: !1,
                 isDenied: !1,
@@ -856,52 +848,52 @@
                 isDismissed: !1
             }, t)
         },
-        ke = function (t, e, n) {
-            var o = I(),
-                i = Tt && bt(e);
-            "function" == typeof n.willClose && n.willClose(e), i ? Ee(t, e, o, n.returnFocus, n.didClose) : ge(t, o, n.returnFocus, n.didClose)
+        Ae = function (t, e, n) {
+            var o = M(),
+                i = Pt && gt(e);
+            "function" == typeof n.willClose && n.willClose(e), i ? ke(t, e, o, n.returnFocus, n.didClose) : ve(t, o, n.returnFocus, n.didClose)
         },
-        Ee = function (t, e, n, o, i) {
-            Tt && (y.swalCloseEventFinishedCallback = ge.bind(null, t, n, o, i), e.addEventListener(Tt, (function (t) {
-                t.target === e && (y.swalCloseEventFinishedCallback(), delete y.swalCloseEventFinishedCallback)
+        ke = function (t, e, n, o, i) {
+            Pt && (b.swalCloseEventFinishedCallback = ve.bind(null, t, n, o, i), e.addEventListener(Pt, (function (t) {
+                t.target === e && (b.swalCloseEventFinishedCallback(), delete b.swalCloseEventFinishedCallback)
             })))
         },
-        Pe = function (t, e) {
+        Ee = function (t, e) {
             setTimeout((function () {
                 "function" == typeof e && e.bind(t.params)(), t._destroy && t._destroy()
             }))
         },
         Be = function (t) {
-            var e = q();
-            if (e || new ao, e = q()) {
-                var n = Y();
-                tt() ? ft(V()) : Te(e, t), dt(n), e.setAttribute("data-loading", "true"), e.setAttribute("aria-busy", "true"), e.focus()
+            var e = D();
+            if (e || new ro, e = D()) {
+                var n = K();
+                Q() ? dt(q()) : Pe(e, t), lt(n), e.setAttribute("data-loading", "true"), e.setAttribute("aria-busy", "true"), e.focus()
             }
         },
-        Te = function (t, e) {
-            var n = Z(),
-                o = Y();
-            n && o && (!e && vt(z()) && (e = z()), dt(n), e && (ft(e), o.setAttribute("data-button-to-replace", e.className), n.insertBefore(o, e)), ct([t, n], A.loading))
+        Pe = function (t, e) {
+            var n = Y(),
+                o = K();
+            n && o && (!e && ht(U()) && (e = U()), lt(n), e && (dt(e), o.setAttribute("data-button-to-replace", e.className), n.insertBefore(o, e)), at([t, n], C.loading))
         },
-        xe = function (t) {
+        Te = function (t) {
             return t.checked ? 1 : 0
         },
-        Se = function (t) {
+        xe = function (t) {
             return t.checked ? t.value : null
         },
-        Oe = function (t) {
+        Se = function (t) {
             return t.files && t.files.length ? null !== t.getAttribute("multiple") ? t.files : t.files[0] : null
         },
-        Le = function (t, n) {
-            var o = q();
-            if (o) {
+        Oe = function (t, e) {
+            var n = D();
+            if (n) {
                 var i = function (t) {
-                    "select" === n.input ? function (t, e, n) {
-                        var o = st(t, A.select);
+                    "select" === e.input ? function (t, e, n) {
+                        var o = ut(t, C.select);
                         if (!o) return;
                         var i = function (t, e, o) {
                             var i = document.createElement("option");
-                            i.value = o, et(i, e), i.selected = Ie(o, n.inputValue), t.appendChild(i)
+                            i.value = o, tt(i, e), i.selected = Me(o, n.inputValue), t.appendChild(i)
                         };
                         e.forEach((function (t) {
                             var e = t[0],
@@ -913,51 +905,51 @@
                                 }))
                             } else i(o, n, e)
                         })), o.focus()
-                    }(o, Me(t), n) : "radio" === n.input && function (t, e, n) {
-                        var o = st(t, A.radio);
+                    }(n, je(t), e) : "radio" === e.input && function (t, e, n) {
+                        var o = ut(t, C.radio);
                         if (!o) return;
                         e.forEach((function (t) {
                             var e = t[0],
                                 i = t[1],
                                 r = document.createElement("input"),
                                 a = document.createElement("label");
-                            r.type = "radio", r.name = A.radio, r.value = e, Ie(e, n.inputValue) && (r.checked = !0);
+                            r.type = "radio", r.name = C.radio, r.value = e, Me(e, n.inputValue) && (r.checked = !0);
                             var c = document.createElement("span");
-                            et(c, i), c.className = A.label, a.appendChild(r), a.appendChild(c), o.appendChild(a)
+                            tt(c, i), c.className = C.label, a.appendChild(r), a.appendChild(c), o.appendChild(a)
                         }));
                         var i = o.querySelectorAll("input");
                         i.length && i[0].focus()
-                    }(o, Me(t), n)
+                    }(n, je(t), e)
                 };
-                L(n.inputOptions) || M(n.inputOptions) ? (Be(z()), j(n.inputOptions).then((function (e) {
+                O(e.inputOptions) || j(e.inputOptions) ? (Be(U()), L(e.inputOptions).then((function (e) {
                     t.hideLoading(), i(e)
-                }))) : "object" === e(n.inputOptions) ? i(n.inputOptions) : T("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(e(n.inputOptions)))
+                }))) : "object" === o(e.inputOptions) ? i(e.inputOptions) : P("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(o(e.inputOptions)))
             }
         },
-        je = function (t, e) {
+        Le = function (t, e) {
             var n = t.getInput();
-            n && (ft(n), j(e.inputValue).then((function (o) {
-                n.value = "number" === e.input ? "".concat(parseFloat(o) || 0) : "".concat(o), dt(n), n.focus(), t.hideLoading()
+            n && (dt(n), L(e.inputValue).then((function (o) {
+                n.value = "number" === e.input ? "".concat(parseFloat(o) || 0) : "".concat(o), lt(n), n.focus(), t.hideLoading()
             })).catch((function (e) {
-                T("Error in inputValue promise: ".concat(e)), n.value = "", dt(n), n.focus(), t.hideLoading()
+                P("Error in inputValue promise: ".concat(e)), n.value = "", lt(n), n.focus(), t.hideLoading()
             })))
         };
-    var Me = function t(n) {
-            var o = [];
-            return n instanceof Map ? n.forEach((function (n, i) {
-                var r = n;
-                "object" === e(r) && (r = t(r)), o.push([i, r])
-            })) : Object.keys(n).forEach((function (i) {
-                var r = n[i];
-                "object" === e(r) && (r = t(r)), o.push([i, r])
-            })), o
+    var je = function t(e) {
+            var n = [];
+            return e instanceof Map ? e.forEach((function (e, i) {
+                var r = e;
+                "object" === o(r) && (r = t(r)), n.push([i, r])
+            })) : Object.keys(e).forEach((function (i) {
+                var r = e[i];
+                "object" === o(r) && (r = t(r)), n.push([i, r])
+            })), n
         },
-        Ie = function (t, e) {
+        Me = function (t, e) {
             return !!e && e.toString() === t.toString()
         },
-        He = void 0,
-        De = function (t, e) {
-            var n = Lt.innerParams.get(t);
+        Ie = void 0,
+        He = function (t, e) {
+            var n = Ot.innerParams.get(t);
             if (n.input) {
                 var o = t.getInput(),
                     i = function (t, e) {
@@ -965,43 +957,43 @@
                         if (!n) return null;
                         switch (e.input) {
                             case "checkbox":
-                                return xe(n);
+                                return Te(n);
                             case "radio":
-                                return Se(n);
+                                return xe(n);
                             case "file":
-                                return Oe(n);
+                                return Se(n);
                             default:
                                 return e.inputAutoTrim ? n.value.trim() : n.value
                         }
                     }(t, n);
-                n.inputValidator ? qe(t, i, e) : o && !o.checkValidity() ? (t.enableButtons(), t.showValidationMessage(n.validationMessage)) : "deny" === e ? Ve(t, i) : Ne(t, i)
-            } else T('The "input" parameter is needed to be set when using returnInputValueOn'.concat(P(e)))
+                n.inputValidator ? De(t, i, e) : o && !o.checkValidity() ? (t.enableButtons(), t.showValidationMessage(n.validationMessage)) : "deny" === e ? qe(t, i) : Re(t, i)
+            } else P('The "input" parameter is needed to be set when using returnInputValueOn'.concat(E(e)))
         },
-        qe = function (t, e, n) {
-            var o = Lt.innerParams.get(t);
+        De = function (t, e, n) {
+            var o = Ot.innerParams.get(t);
             t.disableInput(), Promise.resolve().then((function () {
-                return j(o.inputValidator(e, o.validationMessage))
+                return L(o.inputValidator(e, o.validationMessage))
             })).then((function (o) {
-                t.enableButtons(), t.enableInput(), o ? t.showValidationMessage(o) : "deny" === n ? Ve(t, e) : Ne(t, e)
+                t.enableButtons(), t.enableInput(), o ? t.showValidationMessage(o) : "deny" === n ? qe(t, e) : Re(t, e)
             }))
         },
-        Ve = function (t, e) {
-            var n = Lt.innerParams.get(t || He);
-            (n.showLoaderOnDeny && Be(K()), n.preDeny) ? (t.isAwaitingPromise = !0, Promise.resolve().then((function () {
-                return j(n.preDeny(e, n.validationMessage))
+        qe = function (t, e) {
+            var n = Ot.innerParams.get(t || Ie);
+            (n.showLoaderOnDeny && Be(W()), n.preDeny) ? (t.isAwaitingPromise = !0, Promise.resolve().then((function () {
+                return L(n.preDeny(e, n.validationMessage))
             })).then((function (n) {
-                !1 === n ? (t.hideLoading(), Ce(t)) : t.close({
+                !1 === n ? (t.hideLoading(), we(t)) : t.close({
                     isDenied: !0,
                     value: void 0 === n ? e : n
                 })
             })).catch((function (e) {
-                return _e(t || He, e)
+                return _e(t || Ie, e)
             }))) : t.close({
                 isDenied: !0,
                 value: e
             })
         },
-        Re = function (t, e) {
+        Ve = function (t, e) {
             t.close({
                 isConfirmed: !0,
                 value: e
@@ -1010,81 +1002,81 @@
         _e = function (t, e) {
             t.rejectPromise(e)
         },
-        Ne = function (t, e) {
-            var n = Lt.innerParams.get(t || He);
+        Re = function (t, e) {
+            var n = Ot.innerParams.get(t || Ie);
             (n.showLoaderOnConfirm && Be(), n.preConfirm) ? (t.resetValidationMessage(), t.isAwaitingPromise = !0, Promise.resolve().then((function () {
-                return j(n.preConfirm(e, n.validationMessage))
+                return L(n.preConfirm(e, n.validationMessage))
             })).then((function (n) {
-                vt(U()) || !1 === n ? (t.hideLoading(), Ce(t)) : Re(t, void 0 === n ? e : n)
+                ht(F()) || !1 === n ? (t.hideLoading(), we(t)) : Ve(t, void 0 === n ? e : n)
             })).catch((function (e) {
-                return _e(t || He, e)
-            }))) : Re(t, e)
+                return _e(t || Ie, e)
+            }))) : Ve(t, e)
         };
 
-    function Fe() {
-        var t = Lt.innerParams.get(this);
+    function Ne() {
+        var t = Ot.innerParams.get(this);
         if (t) {
-            var e = Lt.domCache.get(this);
-            ft(e.loader), tt() ? t.icon && dt(V()) : Ue(e), ut([e.popup, e.actions], A.loading), e.popup.removeAttribute("aria-busy"), e.popup.removeAttribute("data-loading"), e.confirmButton.disabled = !1, e.denyButton.disabled = !1, e.cancelButton.disabled = !1
+            var e = Ot.domCache.get(this);
+            dt(e.loader), Q() ? t.icon && lt(q()) : Fe(e), ct([e.popup, e.actions], C.loading), e.popup.removeAttribute("aria-busy"), e.popup.removeAttribute("data-loading"), e.confirmButton.disabled = !1, e.denyButton.disabled = !1, e.cancelButton.disabled = !1
         }
     }
-    var Ue = function (t) {
+    var Fe = function (t) {
         var e = t.popup.getElementsByClassName(t.loader.getAttribute("data-button-to-replace"));
-        e.length ? dt(e[0], "inline-block") : vt(z()) || vt(K()) || vt(W()) || ft(t.actions)
+        e.length ? lt(e[0], "inline-block") : ht(U()) || ht(W()) || ht(z()) || dt(t.actions)
     };
 
-    function ze() {
-        var t = Lt.innerParams.get(this),
-            e = Lt.domCache.get(this);
-        return e ? it(e.popup, t.input) : null
+    function Ue() {
+        var t = Ot.innerParams.get(this),
+            e = Ot.domCache.get(this);
+        return e ? ot(e.popup, t.input) : null
     }
 
-    function We(t, e, n) {
-        var o = Lt.domCache.get(t);
+    function ze(t, e, n) {
+        var o = Ot.domCache.get(t);
         e.forEach((function (t) {
             o[t].disabled = n
         }))
     }
 
-    function Ke(t, e) {
-        var n = q();
+    function We(t, e) {
+        var n = D();
         if (n && t)
             if ("radio" === t.type)
-                for (var o = n.querySelectorAll('[name="'.concat(A.radio, '"]')), i = 0; i < o.length; i++) o[i].disabled = e;
+                for (var o = n.querySelectorAll('[name="'.concat(C.radio, '"]')), i = 0; i < o.length; i++) o[i].disabled = e;
             else t.disabled = e
     }
 
+    function Ke() {
+        ze(this, ["confirmButton", "denyButton", "cancelButton"], !1)
+    }
+
     function Ye() {
-        We(this, ["confirmButton", "denyButton", "cancelButton"], !1)
+        ze(this, ["confirmButton", "denyButton", "cancelButton"], !0)
     }
 
     function Ze() {
-        We(this, ["confirmButton", "denyButton", "cancelButton"], !0)
+        We(this.getInput(), !1)
     }
 
     function $e() {
-        Ke(this.getInput(), !1)
+        We(this.getInput(), !0)
     }
 
-    function Je() {
-        Ke(this.getInput(), !0)
-    }
-
-    function Xe(t) {
-        var e = Lt.domCache.get(this),
-            n = Lt.innerParams.get(this);
-        et(e.validationMessage, t), e.validationMessage.className = A["validation-message"], n.customClass && n.customClass.validationMessage && ct(e.validationMessage, n.customClass.validationMessage), dt(e.validationMessage);
+    function Je(t) {
+        var e = Ot.domCache.get(this),
+            n = Ot.innerParams.get(this);
+        tt(e.validationMessage, t), e.validationMessage.className = C["validation-message"], n.customClass && n.customClass.validationMessage && at(e.validationMessage, n.customClass.validationMessage), lt(e.validationMessage);
         var o = this.getInput();
-        o && (o.setAttribute("aria-invalid", "true"), o.setAttribute("aria-describedby", A["validation-message"]), rt(o), ct(o, A.inputerror))
+        o && (o.setAttribute("aria-invalid", "true"), o.setAttribute("aria-describedby", C["validation-message"]), it(o), at(o, C.inputerror))
     }
 
-    function Ge() {
-        var t = Lt.domCache.get(this);
-        t.validationMessage && ft(t.validationMessage);
+    function Xe() {
+        var t = Ot.domCache.get(this);
+        t.validationMessage && dt(t.validationMessage);
         var e = this.getInput();
-        e && (e.removeAttribute("aria-invalid"), e.removeAttribute("aria-describedby"), ut(e, A.inputerror))
+        e && (e.removeAttribute("aria-invalid"), e.removeAttribute("aria-describedby"), ct(e, C.inputerror))
     }
-    var Qe = {
+    var Ge = {
             title: "",
             titleText: "",
             text: "",
@@ -1175,36 +1167,36 @@
             didDestroy: void 0,
             scrollbarPadding: !0
         },
-        tn = ["allowEscapeKey", "allowOutsideClick", "background", "buttonsStyling", "cancelButtonAriaLabel", "cancelButtonColor", "cancelButtonText", "closeButtonAriaLabel", "closeButtonHtml", "color", "confirmButtonAriaLabel", "confirmButtonColor", "confirmButtonText", "currentProgressStep", "customClass", "denyButtonAriaLabel", "denyButtonColor", "denyButtonText", "didClose", "didDestroy", "footer", "hideClass", "html", "icon", "iconColor", "iconHtml", "imageAlt", "imageHeight", "imageUrl", "imageWidth", "preConfirm", "preDeny", "progressSteps", "returnFocus", "reverseButtons", "showCancelButton", "showCloseButton", "showConfirmButton", "showDenyButton", "text", "title", "titleText", "willClose"],
-        en = {},
-        nn = ["allowOutsideClick", "allowEnterKey", "backdrop", "focusConfirm", "focusDeny", "focusCancel", "returnFocus", "heightAuto", "keydownListenerCapture"],
+        Qe = ["allowEscapeKey", "allowOutsideClick", "background", "buttonsStyling", "cancelButtonAriaLabel", "cancelButtonColor", "cancelButtonText", "closeButtonAriaLabel", "closeButtonHtml", "color", "confirmButtonAriaLabel", "confirmButtonColor", "confirmButtonText", "currentProgressStep", "customClass", "denyButtonAriaLabel", "denyButtonColor", "denyButtonText", "didClose", "didDestroy", "footer", "hideClass", "html", "icon", "iconColor", "iconHtml", "imageAlt", "imageHeight", "imageUrl", "imageWidth", "preConfirm", "preDeny", "progressSteps", "returnFocus", "reverseButtons", "showCancelButton", "showCloseButton", "showConfirmButton", "showDenyButton", "text", "title", "titleText", "willClose"],
+        tn = {},
+        en = ["allowOutsideClick", "allowEnterKey", "backdrop", "focusConfirm", "focusDeny", "focusCancel", "returnFocus", "heightAuto", "keydownListenerCapture"],
+        nn = function (t) {
+            return Object.prototype.hasOwnProperty.call(Ge, t)
+        },
         on = function (t) {
-            return Object.prototype.hasOwnProperty.call(Qe, t)
+            return -1 !== Qe.indexOf(t)
         },
         rn = function (t) {
-            return -1 !== tn.indexOf(t)
+            return tn[t]
         },
         an = function (t) {
-            return en[t]
+            nn(t) || B('Unknown parameter "'.concat(t, '"'))
         },
         cn = function (t) {
-            on(t) || B('Unknown parameter "'.concat(t, '"'))
+            en.includes(t) && B('The parameter "'.concat(t, '" is incompatible with toasts'))
         },
         un = function (t) {
-            nn.includes(t) && B('The parameter "'.concat(t, '" is incompatible with toasts'))
-        },
-        sn = function (t) {
-            var e = an(t);
-            e && S(t, e)
+            var e = rn(t);
+            e && x(t, e)
         };
 
-    function ln(t) {
-        var e = q(),
-            n = Lt.innerParams.get(this);
-        if (e && !nt(e, n.hideClass.popup)) {
-            var o = dn(t),
+    function sn(t) {
+        var e = D(),
+            n = Ot.innerParams.get(this);
+        if (e && !et(e, n.hideClass.popup)) {
+            var o = ln(t),
                 i = Object.assign({}, n, o);
-            Jt(this, i), Lt.innerParams.set(this, i), Object.defineProperties(this, {
+            $t(this, i), Ot.innerParams.set(this, i), Object.defineProperties(this, {
                 params: {
                     value: Object.assign({}, this.params, t),
                     writable: !1,
@@ -1213,182 +1205,191 @@
             })
         } else B("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.")
     }
-    var dn = function (t) {
+    var ln = function (t) {
         var e = {};
         return Object.keys(t).forEach((function (n) {
-            rn(n) ? e[n] = t[n] : B("Invalid parameter to update: ".concat(n))
+            on(n) ? e[n] = t[n] : B("Invalid parameter to update: ".concat(n))
         })), e
     };
 
-    function fn() {
-        var t = Lt.domCache.get(this),
-            e = Lt.innerParams.get(this);
-        e ? (t.popup && y.swalCloseEventFinishedCallback && (y.swalCloseEventFinishedCallback(), delete y.swalCloseEventFinishedCallback), "function" == typeof e.didDestroy && e.didDestroy(), pn(this)) : mn(this)
+    function dn() {
+        var t = Ot.domCache.get(this),
+            e = Ot.innerParams.get(this);
+        e ? (t.popup && b.swalCloseEventFinishedCallback && (b.swalCloseEventFinishedCallback(), delete b.swalCloseEventFinishedCallback), "function" == typeof e.didDestroy && e.didDestroy(), fn(this)) : pn(this)
     }
-    var pn = function (t) {
-            mn(t), delete t.params, delete y.keydownHandler, delete y.keydownTarget, delete y.currentInstance
+    var fn = function (t) {
+            pn(t), delete t.params, delete b.keydownHandler, delete b.keydownTarget, delete b.currentInstance
         },
-        mn = function (t) {
-            t.isAwaitingPromise ? (hn(Lt, t), t.isAwaitingPromise = !0) : (hn(ue, t), hn(Lt, t), delete t.isAwaitingPromise, delete t.disableButtons, delete t.enableButtons, delete t.getInput, delete t.disableInput, delete t.enableInput, delete t.hideLoading, delete t.disableLoading, delete t.showValidationMessage, delete t.resetValidationMessage, delete t.close, delete t.closePopup, delete t.closeModal, delete t.closeToast, delete t.rejectPromise, delete t.update, delete t._destroy)
+        pn = function (t) {
+            t.isAwaitingPromise ? (mn(Ot, t), t.isAwaitingPromise = !0) : (mn(ce, t), mn(Ot, t), delete t.isAwaitingPromise, delete t.disableButtons, delete t.enableButtons, delete t.getInput, delete t.disableInput, delete t.enableInput, delete t.hideLoading, delete t.disableLoading, delete t.showValidationMessage, delete t.resetValidationMessage, delete t.close, delete t.closePopup, delete t.closeModal, delete t.closeToast, delete t.rejectPromise, delete t.update, delete t._destroy)
         },
-        hn = function (t, e) {
+        mn = function (t, e) {
             for (var n in t) t[n].delete(e)
         },
-        vn = Object.freeze({
+        hn = Object.freeze({
             __proto__: null,
-            _destroy: fn,
-            close: be,
-            closeModal: be,
-            closePopup: be,
-            closeToast: be,
-            disableButtons: Ze,
-            disableInput: Je,
-            disableLoading: Fe,
-            enableButtons: Ye,
-            enableInput: $e,
-            getInput: ze,
-            handleAwaitingPromise: Ce,
-            hideLoading: Fe,
-            rejectPromise: we,
-            resetValidationMessage: Ge,
-            showValidationMessage: Xe,
-            update: ln
+            _destroy: dn,
+            close: ge,
+            closeModal: ge,
+            closePopup: ge,
+            closeToast: ge,
+            disableButtons: Ye,
+            disableInput: $e,
+            disableLoading: Ne,
+            enableButtons: Ke,
+            enableInput: Ze,
+            getInput: Ue,
+            handleAwaitingPromise: we,
+            hideLoading: Ne,
+            rejectPromise: ye,
+            resetValidationMessage: Xe,
+            showValidationMessage: Je,
+            update: sn
         }),
-        gn = function (t, e, n) {
+        vn = function (t, e, n) {
             e.popup.onclick = function () {
-                t && (bn(t) || t.timer || t.input) || n(Gt.close)
+                t && (gn(t) || t.timer || t.input) || n(Xt.close)
             }
         },
-        bn = function (t) {
+        gn = function (t) {
             return !!(t.showConfirmButton || t.showDenyButton || t.showCancelButton || t.showCloseButton)
         },
-        yn = !1,
-        wn = function (t) {
+        bn = !1,
+        yn = function (t) {
             t.popup.onmousedown = function () {
                 t.container.onmouseup = function (e) {
-                    t.container.onmouseup = function () {}, e.target === t.container && (yn = !0)
+                    t.container.onmouseup = function () {}, e.target === t.container && (bn = !0)
                 }
             }
         },
-        Cn = function (t) {
+        wn = function (t) {
             t.container.onmousedown = function () {
                 t.popup.onmouseup = function (e) {
-                    t.popup.onmouseup = function () {}, (e.target === t.popup || e.target instanceof HTMLElement && t.popup.contains(e.target)) && (yn = !0)
+                    t.popup.onmouseup = function () {}, (e.target === t.popup || e.target instanceof HTMLElement && t.popup.contains(e.target)) && (bn = !0)
                 }
             }
         },
-        An = function (t, e, n) {
+        Cn = function (t, e, n) {
             e.container.onclick = function (o) {
-                yn ? yn = !1 : o.target === e.container && O(t.allowOutsideClick) && n(Gt.backdrop)
+                bn ? bn = !1 : o.target === e.container && S(t.allowOutsideClick) && n(Xt.backdrop)
             }
         },
-        kn = function (t) {
+        An = function (t) {
             return t instanceof Element || function (t) {
-                return "object" === e(t) && t.jquery
+                return "object" === o(t) && t.jquery
             }(t)
         };
-    var En = function () {
-            if (y.timeout) return function () {
-                var t = J();
+    var kn = function () {
+            if (b.timeout) return function () {
+                var t = $();
                 if (t) {
                     var e = parseInt(window.getComputedStyle(t).width);
                     t.style.removeProperty("transition"), t.style.width = "100%";
                     var n = e / parseInt(window.getComputedStyle(t).width) * 100;
                     t.style.width = "".concat(n, "%")
                 }
-            }(), y.timeout.stop()
+            }(), b.timeout.stop()
         },
-        Pn = function () {
-            if (y.timeout) {
-                var t = y.timeout.start();
-                return yt(t), t
+        En = function () {
+            if (b.timeout) {
+                var t = b.timeout.start();
+                return bt(t), t
             }
         },
         Bn = !1,
-        Tn = {};
-    var xn, Sn = function (t) {
+        Pn = {};
+    var Tn, xn = function (t) {
             for (var e = t.target; e && e !== document; e = e.parentNode)
-                for (var n in Tn) {
+                for (var n in Pn) {
                     var o = e.getAttribute(n);
-                    if (o) return void Tn[n].fire({
+                    if (o) return void Pn[n].fire({
                         template: o
                     })
                 }
         },
-        On = Object.freeze({
+        Sn = Object.freeze({
             __proto__: null,
             argsToParams: function (t) {
-                var n = {};
-                return "object" !== e(t[0]) || kn(t[0]) ? ["title", "html", "icon"].forEach((function (o, i) {
+                var e = {};
+                return "object" !== o(t[0]) || An(t[0]) ? ["title", "html", "icon"].forEach((function (n, i) {
                     var r = t[i];
-                    "string" == typeof r || kn(r) ? n[o] = r : void 0 !== r && T("Unexpected type of ".concat(o, '! Expected "string" or "Element", got ').concat(e(r)))
-                })) : Object.assign(n, t[0]), n
+                    "string" == typeof r || An(r) ? e[n] = r : void 0 !== r && P("Unexpected type of ".concat(n, '! Expected "string" or "Element", got ').concat(o(r)))
+                })) : Object.assign(e, t[0]), e
             },
             bindClickHandler: function () {
-                Tn[arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "data-swal-template"] = this, Bn || (document.body.addEventListener("click", Sn), Bn = !0)
+                Pn[arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "data-swal-template"] = this, Bn || (document.body.addEventListener("click", xn), Bn = !0)
             },
             clickCancel: function () {
                 var t;
-                return null === (t = W()) || void 0 === t ? void 0 : t.click()
+                return null === (t = z()) || void 0 === t ? void 0 : t.click()
             },
-            clickConfirm: Xt,
+            clickConfirm: Jt,
             clickDeny: function () {
                 var t;
-                return null === (t = K()) || void 0 === t ? void 0 : t.click()
+                return null === (t = W()) || void 0 === t ? void 0 : t.click()
             },
             enableLoading: Be,
             fire: function () {
-                for (var t = arguments.length, e = new Array(t), n = 0; n < t; n++) e[n] = arguments[n];
-                return u(this, e)
+                for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++) n[o] = arguments[o];
+                return function (t, n, o) {
+                    if (e()) return Reflect.construct.apply(null, arguments);
+                    var i = [null];
+                    i.push.apply(i, n);
+                    var r = new(t.bind.apply(t, i));
+                    return o && u(r, o.prototype), r
+                }(this, n)
             },
-            getActions: Z,
-            getCancelButton: W,
-            getCloseButton: X,
-            getConfirmButton: z,
-            getContainer: I,
-            getDenyButton: K,
-            getFocusableElements: G,
-            getFooter: $,
+            getActions: Y,
+            getCancelButton: z,
+            getCloseButton: J,
+            getConfirmButton: U,
+            getContainer: M,
+            getDenyButton: W,
+            getFocusableElements: X,
+            getFooter: Z,
             getHtmlContainer: _,
-            getIcon: V,
+            getIcon: q,
             getIconContent: function () {
-                return D(A["icon-content"])
+                return H(C["icon-content"])
             },
-            getImage: N,
+            getImage: R,
             getInputLabel: function () {
-                return D(A["input-label"])
+                return H(C["input-label"])
             },
-            getLoader: Y,
-            getPopup: q,
-            getProgressSteps: F,
+            getLoader: K,
+            getPopup: D,
+            getProgressSteps: N,
             getTimerLeft: function () {
-                return y.timeout && y.timeout.getTimerLeft()
+                return b.timeout && b.timeout.getTimerLeft()
             },
-            getTimerProgressBar: J,
-            getTitle: R,
-            getValidationMessage: U,
+            getTimerProgressBar: $,
+            getTitle: V,
+            getValidationMessage: F,
             increaseTimer: function (t) {
-                if (y.timeout) {
-                    var e = y.timeout.increase(t);
-                    return yt(e, !0), e
+                if (b.timeout) {
+                    var e = b.timeout.increase(t);
+                    return bt(e, !0), e
                 }
             },
-            isDeprecatedParameter: an,
+            isDeprecatedParameter: rn,
             isLoading: function () {
-                var t = q();
+                var t = D();
                 return !!t && t.hasAttribute("data-loading")
             },
             isTimerRunning: function () {
-                return !(!y.timeout || !y.timeout.isRunning())
+                return !(!b.timeout || !b.timeout.isRunning())
             },
-            isUpdatableParameter: rn,
-            isValidParameter: on,
+            isUpdatableParameter: on,
+            isValidParameter: nn,
             isVisible: function () {
-                return vt(q())
+                return ht(D())
             },
-            mixin: function (t) {
-                var e = function (e) {
-                    ! function (t, e) {
+            mixin: function (e) {
+                var n = function (n) {
+                    function o() {
+                        return i(this, o), t(this, o, arguments)
+                    }
+                    return function (t, e) {
                         if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
                         t.prototype = Object.create(e && e.prototype, {
                             constructor: {
@@ -1398,42 +1399,29 @@
                             }
                         }), Object.defineProperty(t, "prototype", {
                             writable: !1
-                        }), e && a(t, e)
-                    }(f, e);
-                    var o, u, d = (o = f, u = c(), function () {
-                        var t, e = r(o);
-                        if (u) {
-                            var n = r(this).constructor;
-                            t = Reflect.construct(e, arguments, n)
-                        } else t = e.apply(this, arguments);
-                        return s(this, t)
-                    });
-
-                    function f() {
-                        return n(this, f), d.apply(this, arguments)
-                    }
-                    return i(f, [{
+                        }), e && u(t, e)
+                    }(o, n), a(o, [{
                         key: "_main",
-                        value: function (e, n) {
-                            return l(r(f.prototype), "_main", this).call(this, e, Object.assign({}, t, n))
+                        value: function (t, n) {
+                            return s(c(o.prototype), "_main", this).call(this, t, Object.assign({}, e, n))
                         }
-                    }]), f
+                    }]), o
                 }(this);
-                return e
+                return n
             },
-            resumeTimer: Pn,
+            resumeTimer: En,
             showLoading: Be,
-            stopTimer: En,
+            stopTimer: kn,
             toggleTimer: function () {
-                var t = y.timeout;
-                return t && (t.running ? En() : Pn())
+                var t = b.timeout;
+                return t && (t.running ? kn() : En())
             }
         }),
-        Ln = function () {
-            function t(e, o) {
-                n(this, t), this.callback = e, this.remaining = o, this.running = !1, this.start()
+        On = function () {
+            function t(e, n) {
+                i(this, t), this.callback = e, this.remaining = n, this.running = !1, this.start()
             }
-            return i(t, [{
+            return a(t, [{
                 key: "start",
                 value: function () {
                     return this.running || (this.running = !0, this.started = new Date, this.id = setTimeout(this.callback, this.remaining)), this.remaining
@@ -1461,17 +1449,17 @@
                 }
             }]), t
         }(),
-        jn = ["swal-title", "swal-html", "swal-footer"],
-        Mn = function (t) {
-            var n = {};
+        Ln = ["swal-title", "swal-html", "swal-footer"],
+        jn = function (t) {
+            var e = {};
             return Array.from(t.querySelectorAll("swal-param")).forEach((function (t) {
-                Nn(t, ["name", "value"]);
-                var o = t.getAttribute("name"),
+                Rn(t, ["name", "value"]);
+                var n = t.getAttribute("name"),
                     i = t.getAttribute("value");
-                "boolean" == typeof Qe[o] ? n[o] = "false" !== i : "object" === e(Qe[o]) ? n[o] = JSON.parse(i) : n[o] = i
-            })), n
+                "boolean" == typeof Ge[n] ? e[n] = "false" !== i : "object" === o(Ge[n]) ? e[n] = JSON.parse(i) : e[n] = i
+            })), e
         },
-        In = function (t) {
+        Mn = function (t) {
             var e = {};
             return Array.from(t.querySelectorAll("swal-function-param")).forEach((function (t) {
                 var n = t.getAttribute("name"),
@@ -1479,96 +1467,96 @@
                 e[n] = new Function("return ".concat(o))()
             })), e
         },
-        Hn = function (t) {
+        In = function (t) {
             var e = {};
             return Array.from(t.querySelectorAll("swal-button")).forEach((function (t) {
-                Nn(t, ["type", "color", "aria-label"]);
+                Rn(t, ["type", "color", "aria-label"]);
                 var n = t.getAttribute("type");
-                e["".concat(n, "ButtonText")] = t.innerHTML, e["show".concat(P(n), "Button")] = !0, t.hasAttribute("color") && (e["".concat(n, "ButtonColor")] = t.getAttribute("color")), t.hasAttribute("aria-label") && (e["".concat(n, "ButtonAriaLabel")] = t.getAttribute("aria-label"))
+                e["".concat(n, "ButtonText")] = t.innerHTML, e["show".concat(E(n), "Button")] = !0, t.hasAttribute("color") && (e["".concat(n, "ButtonColor")] = t.getAttribute("color")), t.hasAttribute("aria-label") && (e["".concat(n, "ButtonAriaLabel")] = t.getAttribute("aria-label"))
             })), e
+        },
+        Hn = function (t) {
+            var e = {},
+                n = t.querySelector("swal-image");
+            return n && (Rn(n, ["src", "width", "height", "alt"]), n.hasAttribute("src") && (e.imageUrl = n.getAttribute("src")), n.hasAttribute("width") && (e.imageWidth = n.getAttribute("width")), n.hasAttribute("height") && (e.imageHeight = n.getAttribute("height")), n.hasAttribute("alt") && (e.imageAlt = n.getAttribute("alt"))), e
         },
         Dn = function (t) {
             var e = {},
-                n = t.querySelector("swal-image");
-            return n && (Nn(n, ["src", "width", "height", "alt"]), n.hasAttribute("src") && (e.imageUrl = n.getAttribute("src")), n.hasAttribute("width") && (e.imageWidth = n.getAttribute("width")), n.hasAttribute("height") && (e.imageHeight = n.getAttribute("height")), n.hasAttribute("alt") && (e.imageAlt = n.getAttribute("alt"))), e
+                n = t.querySelector("swal-icon");
+            return n && (Rn(n, ["type", "color"]), n.hasAttribute("type") && (e.icon = n.getAttribute("type")), n.hasAttribute("color") && (e.iconColor = n.getAttribute("color")), e.iconHtml = n.innerHTML), e
         },
         qn = function (t) {
             var e = {},
-                n = t.querySelector("swal-icon");
-            return n && (Nn(n, ["type", "color"]), n.hasAttribute("type") && (e.icon = n.getAttribute("type")), n.hasAttribute("color") && (e.iconColor = n.getAttribute("color")), e.iconHtml = n.innerHTML), e
-        },
-        Vn = function (t) {
-            var e = {},
                 n = t.querySelector("swal-input");
-            n && (Nn(n, ["type", "label", "placeholder", "value"]), e.input = n.getAttribute("type") || "text", n.hasAttribute("label") && (e.inputLabel = n.getAttribute("label")), n.hasAttribute("placeholder") && (e.inputPlaceholder = n.getAttribute("placeholder")), n.hasAttribute("value") && (e.inputValue = n.getAttribute("value")));
+            n && (Rn(n, ["type", "label", "placeholder", "value"]), e.input = n.getAttribute("type") || "text", n.hasAttribute("label") && (e.inputLabel = n.getAttribute("label")), n.hasAttribute("placeholder") && (e.inputPlaceholder = n.getAttribute("placeholder")), n.hasAttribute("value") && (e.inputValue = n.getAttribute("value")));
             var o = Array.from(t.querySelectorAll("swal-input-option"));
             return o.length && (e.inputOptions = {}, o.forEach((function (t) {
-                Nn(t, ["value"]);
+                Rn(t, ["value"]);
                 var n = t.getAttribute("value"),
                     o = t.innerHTML;
                 e.inputOptions[n] = o
             }))), e
         },
-        Rn = function (t, e) {
+        Vn = function (t, e) {
             var n = {};
             for (var o in e) {
                 var i = e[o],
                     r = t.querySelector(i);
-                r && (Nn(r, []), n[i.replace(/^swal-/, "")] = r.innerHTML.trim())
+                r && (Rn(r, []), n[i.replace(/^swal-/, "")] = r.innerHTML.trim())
             }
             return n
         },
         _n = function (t) {
-            var e = jn.concat(["swal-param", "swal-function-param", "swal-button", "swal-image", "swal-icon", "swal-input", "swal-input-option"]);
+            var e = Ln.concat(["swal-param", "swal-function-param", "swal-button", "swal-image", "swal-icon", "swal-input", "swal-input-option"]);
             Array.from(t.children).forEach((function (t) {
                 var n = t.tagName.toLowerCase();
                 e.includes(n) || B("Unrecognized element <".concat(n, ">"))
             }))
         },
-        Nn = function (t, e) {
+        Rn = function (t, e) {
             Array.from(t.attributes).forEach((function (n) {
                 -1 === e.indexOf(n.name) && B(['Unrecognized attribute "'.concat(n.name, '" on <').concat(t.tagName.toLowerCase(), ">."), "".concat(e.length ? "Allowed attributes are: ".concat(e.join(", ")) : "To set the value, use HTML within the element.")])
             }))
         },
-        Fn = function (t) {
-            var e = I(),
-                n = q();
+        Nn = function (t) {
+            var e = M(),
+                n = D();
             "function" == typeof t.willOpen && t.willOpen(n);
             var o = window.getComputedStyle(document.body).overflowY;
-            Kn(e, n, t), setTimeout((function () {
-                zn(e, n)
-            }), 10), Q() && (Wn(e, t.scrollbarPadding, o), Array.from(document.body.children).forEach((function (t) {
-                t === I() || t.contains(I()) || (t.hasAttribute("aria-hidden") && t.setAttribute("data-previous-aria-hidden", t.getAttribute("aria-hidden") || ""), t.setAttribute("aria-hidden", "true"))
-            }))), tt() || y.previousActiveElement || (y.previousActiveElement = document.activeElement), "function" == typeof t.didOpen && setTimeout((function () {
+            Wn(e, n, t), setTimeout((function () {
+                Un(e, n)
+            }), 10), G() && (zn(e, t.scrollbarPadding, o), Array.from(document.body.children).forEach((function (t) {
+                t === M() || t.contains(M()) || (t.hasAttribute("aria-hidden") && t.setAttribute("data-previous-aria-hidden", t.getAttribute("aria-hidden") || ""), t.setAttribute("aria-hidden", "true"))
+            }))), Q() || b.previousActiveElement || (b.previousActiveElement = document.activeElement), "function" == typeof t.didOpen && setTimeout((function () {
                 return t.didOpen(n)
-            })), ut(e, A["no-transition"])
+            })), ct(e, C["no-transition"])
         },
-        Un = function t(e) {
-            var n = q();
-            if (e.target === n && Tt) {
-                var o = I();
-                n.removeEventListener(Tt, t), o.style.overflowY = "auto"
+        Fn = function t(e) {
+            var n = D();
+            if (e.target === n && Pt) {
+                var o = M();
+                n.removeEventListener(Pt, t), o.style.overflowY = "auto"
             }
         },
-        zn = function (t, e) {
-            Tt && bt(e) ? (t.style.overflowY = "hidden", e.addEventListener(Tt, Un)) : t.style.overflowY = "auto"
+        Un = function (t, e) {
+            Pt && gt(e) ? (t.style.overflowY = "hidden", e.addEventListener(Pt, Fn)) : t.style.overflowY = "auto"
         },
-        Wn = function (t, e, n) {
+        zn = function (t, e, n) {
             ! function () {
-                if (le && !nt(document.body, A.iosfix)) {
+                if (se && !et(document.body, C.iosfix)) {
                     var t = document.body.scrollTop;
-                    document.body.style.top = "".concat(-1 * t, "px"), ct(document.body, A.iosfix), de()
+                    document.body.style.top = "".concat(-1 * t, "px"), at(document.body, C.iosfix), le()
                 }
-            }(), e && "hidden" !== n && ve(n), setTimeout((function () {
+            }(), e && "hidden" !== n && he(n), setTimeout((function () {
                 t.scrollTop = 0
             }))
         },
-        Kn = function (t, e, n) {
-            ct(t, n.showClass.backdrop), n.animation ? (e.style.setProperty("opacity", "0", "important"), dt(e, "grid"), setTimeout((function () {
-                ct(e, n.showClass.popup), e.style.removeProperty("opacity")
-            }), 10)) : dt(e, "grid"), ct([document.documentElement, document.body], A.shown), n.heightAuto && n.backdrop && !n.toast && ct([document.documentElement, document.body], A["height-auto"])
+        Wn = function (t, e, n) {
+            at(t, n.showClass.backdrop), n.animation ? (e.style.setProperty("opacity", "0", "important"), lt(e, "grid"), setTimeout((function () {
+                at(e, n.showClass.popup), e.style.removeProperty("opacity")
+            }), 10)) : lt(e, "grid"), at([document.documentElement, document.body], C.shown), n.heightAuto && n.backdrop && !n.toast && at([document.documentElement, document.body], C["height-auto"])
         },
-        Yn = {
+        Kn = {
             email: function (t, e) {
                 return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(t) ? Promise.resolve() : Promise.resolve(e || "Invalid email address")
             },
@@ -1577,59 +1565,59 @@
             }
         };
 
-    function Zn(t) {
+    function Yn(t) {
         ! function (t) {
-            t.inputValidator || ("email" === t.input && (t.inputValidator = Yn.email), "url" === t.input && (t.inputValidator = Yn.url))
+            t.inputValidator || ("email" === t.input && (t.inputValidator = Kn.email), "url" === t.input && (t.inputValidator = Kn.url))
         }(t), t.showLoaderOnConfirm && !t.preConfirm && B("showLoaderOnConfirm is set to true, but preConfirm is not defined.\nshowLoaderOnConfirm should be used together with preConfirm, see usage example:\nhttps://sweetalert2.github.io/#ajax-request"),
             function (t) {
                 (!t.target || "string" == typeof t.target && !document.querySelector(t.target) || "string" != typeof t.target && !t.target.appendChild) && (B('Target parameter is not valid, defaulting to "body"'), t.target = "body")
-            }(t), "string" == typeof t.title && (t.title = t.title.split("\n").join("<br />")), kt(t)
+            }(t), "string" == typeof t.title && (t.title = t.title.split("\n").join("<br />")), At(t)
     }
-    var $n = new WeakMap,
-        Jn = function () {
+    var Zn = new WeakMap,
+        $n = function () {
             function t() {
-                if (n(this, t), b(this, $n, {
+                if (i(this, t), g(this, Zn, {
                         writable: !0,
                         value: void 0
                     }), "undefined" != typeof window) {
-                    xn = this;
-                    for (var e = arguments.length, o = new Array(e), i = 0; i < e; i++) o[i] = arguments[i];
-                    var r = Object.freeze(this.constructor.argsToParams(o));
-                    this.params = r, this.isAwaitingPromise = !1, v(this, $n, this._main(xn.params))
+                    Tn = this;
+                    for (var e = arguments.length, n = new Array(e), o = 0; o < e; o++) n[o] = arguments[o];
+                    var r = Object.freeze(this.constructor.argsToParams(n));
+                    this.params = r, this.isAwaitingPromise = !1, h(this, Zn, this._main(Tn.params))
                 }
             }
-            return i(t, [{
+            return a(t, [{
                 key: "_main",
                 value: function (t) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     if (function (t) {
-                            for (var e in !1 === t.backdrop && t.allowOutsideClick && B('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`'), t) cn(e), t.toast && un(e), sn(e)
-                        }(Object.assign({}, e, t)), y.currentInstance) {
-                        var n = ue.swalPromiseResolve.get(y.currentInstance),
-                            o = y.currentInstance.isAwaitingPromise;
-                        y.currentInstance._destroy(), o || n({
+                            for (var e in !1 === t.backdrop && t.allowOutsideClick && B('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`'), t) an(e), t.toast && cn(e), un(e)
+                        }(Object.assign({}, e, t)), b.currentInstance) {
+                        var n = ce.swalPromiseResolve.get(b.currentInstance),
+                            o = b.currentInstance.isAwaitingPromise;
+                        b.currentInstance._destroy(), o || n({
                             isDismissed: !0
-                        }), Q() && se()
+                        }), G() && ue()
                     }
-                    y.currentInstance = xn;
-                    var i = Gn(t, e);
-                    Zn(i), Object.freeze(i), y.timeout && (y.timeout.stop(), delete y.timeout), clearTimeout(y.restoreFocusTimeout);
-                    var r = Qn(xn);
-                    return Jt(xn, i), Lt.innerParams.set(xn, i), Xn(xn, r, i)
+                    b.currentInstance = Tn;
+                    var i = Xn(t, e);
+                    Yn(i), Object.freeze(i), b.timeout && (b.timeout.stop(), delete b.timeout), clearTimeout(b.restoreFocusTimeout);
+                    var r = Gn(Tn);
+                    return $t(Tn, i), Ot.innerParams.set(Tn, i), Jn(Tn, r, i)
                 }
             }, {
                 key: "then",
                 value: function (t) {
-                    return h(this, $n).then(t)
+                    return m(this, Zn).then(t)
                 }
             }, {
                 key: "finally",
                 value: function (t) {
-                    return h(this, $n).finally(t)
+                    return m(this, Zn).finally(t)
                 }
             }]), t
         }(),
-        Xn = function (t, e, n) {
+        Jn = function (t, e, n) {
             return new Promise((function (o, i) {
                 var r = function (e) {
                     t.close({
@@ -1637,92 +1625,92 @@
                         dismiss: e
                     })
                 };
-                ue.swalPromiseResolve.set(t, o), ue.swalPromiseReject.set(t, i), e.confirmButton.onclick = function () {
+                ce.swalPromiseResolve.set(t, o), ce.swalPromiseReject.set(t, i), e.confirmButton.onclick = function () {
                         ! function (t) {
-                            var e = Lt.innerParams.get(t);
-                            t.disableButtons(), e.input ? De(t, "confirm") : Ne(t, !0)
+                            var e = Ot.innerParams.get(t);
+                            t.disableButtons(), e.input ? He(t, "confirm") : Re(t, !0)
                         }(t)
                     }, e.denyButton.onclick = function () {
                         ! function (t) {
-                            var e = Lt.innerParams.get(t);
-                            t.disableButtons(), e.returnInputValueOnDeny ? De(t, "deny") : Ve(t, !1)
+                            var e = Ot.innerParams.get(t);
+                            t.disableButtons(), e.returnInputValueOnDeny ? He(t, "deny") : qe(t, !1)
                         }(t)
                     }, e.cancelButton.onclick = function () {
                         ! function (t, e) {
-                            t.disableButtons(), e(Gt.cancel)
+                            t.disableButtons(), e(Xt.cancel)
                         }(t, r)
                     }, e.closeButton.onclick = function () {
-                        r(Gt.close)
+                        r(Xt.close)
                     },
                     function (t, e, n) {
-                        t.toast ? gn(t, e, n) : (wn(e), Cn(e), An(t, e, n))
+                        t.toast ? vn(t, e, n) : (yn(e), wn(e), Cn(t, e, n))
                     }(n, e, r),
                     function (t, e, n) {
-                        Qt(t), e.toast || (t.keydownHandler = function (t) {
-                            return oe(e, t, n)
-                        }, t.keydownTarget = e.keydownListenerCapture ? window : q(), t.keydownListenerCapture = e.keydownListenerCapture, t.keydownTarget.addEventListener("keydown", t.keydownHandler, {
+                        Gt(t), e.toast || (t.keydownHandler = function (t) {
+                            return ne(e, t, n)
+                        }, t.keydownTarget = e.keydownListenerCapture ? window : D(), t.keydownListenerCapture = e.keydownListenerCapture, t.keydownTarget.addEventListener("keydown", t.keydownHandler, {
                             capture: t.keydownListenerCapture
                         }), t.keydownHandlerAdded = !0)
-                    }(y, n, r),
+                    }(b, n, r),
                     function (t, e) {
-                        "select" === e.input || "radio" === e.input ? Le(t, e) : ["text", "email", "number", "tel", "textarea"].some((function (t) {
+                        "select" === e.input || "radio" === e.input ? Oe(t, e) : ["text", "email", "number", "tel", "textarea"].some((function (t) {
                             return t === e.input
-                        })) && (L(e.inputValue) || M(e.inputValue)) && (Be(z()), je(t, e))
-                    }(t, n), Fn(n), to(y, n, r), eo(e, n), setTimeout((function () {
+                        })) && (O(e.inputValue) || j(e.inputValue)) && (Be(U()), Le(t, e))
+                    }(t, n), Nn(n), Qn(b, n, r), to(e, n), setTimeout((function () {
                         e.container.scrollTop = 0
                     }))
             }))
         },
-        Gn = function (t, e) {
+        Xn = function (t, e) {
             var n = function (t) {
                     var e = "string" == typeof t.template ? document.querySelector(t.template) : t.template;
                     if (!e) return {};
                     var n = e.content;
-                    return _n(n), Object.assign(Mn(n), In(n), Hn(n), Dn(n), qn(n), Vn(n), Rn(n, jn))
+                    return _n(n), Object.assign(jn(n), Mn(n), In(n), Hn(n), Dn(n), qn(n), Vn(n, Ln))
                 }(t),
-                o = Object.assign({}, Qe, e, n, t);
-            return o.showClass = Object.assign({}, Qe.showClass, o.showClass), o.hideClass = Object.assign({}, Qe.hideClass, o.hideClass), !1 === o.animation && (o.showClass = {
+                o = Object.assign({}, Ge, e, n, t);
+            return o.showClass = Object.assign({}, Ge.showClass, o.showClass), o.hideClass = Object.assign({}, Ge.hideClass, o.hideClass), !1 === o.animation && (o.showClass = {
                 backdrop: "swal2-noanimation"
             }, o.hideClass = {}), o
         },
-        Qn = function (t) {
+        Gn = function (t) {
             var e = {
-                popup: q(),
-                container: I(),
-                actions: Z(),
-                confirmButton: z(),
-                denyButton: K(),
-                cancelButton: W(),
-                loader: Y(),
-                closeButton: X(),
-                validationMessage: U(),
-                progressSteps: F()
+                popup: D(),
+                container: M(),
+                actions: Y(),
+                confirmButton: U(),
+                denyButton: W(),
+                cancelButton: z(),
+                loader: K(),
+                closeButton: J(),
+                validationMessage: F(),
+                progressSteps: N()
             };
-            return Lt.domCache.set(t, e), e
+            return Ot.domCache.set(t, e), e
         },
-        to = function (t, e, n) {
-            var o = J();
-            ft(o), e.timer && (t.timeout = new Ln((function () {
+        Qn = function (t, e, n) {
+            var o = $();
+            dt(o), e.timer && (t.timeout = new On((function () {
                 n("timer"), delete t.timeout
-            }), e.timer), e.timerProgressBar && (dt(o), ot(o, e, "timerProgressBar"), setTimeout((function () {
-                t.timeout && t.timeout.running && yt(e.timer)
+            }), e.timer), e.timerProgressBar && (lt(o), nt(o, e, "timerProgressBar"), setTimeout((function () {
+                t.timeout && t.timeout.running && bt(e.timer)
             }))))
         },
+        to = function (t, e) {
+            e.toast || (S(e.allowEnterKey) ? eo(t, e) || Qt(-1, 1) : no())
+        },
         eo = function (t, e) {
-            e.toast || (O(e.allowEnterKey) ? no(t, e) || te(-1, 1) : oo())
+            return e.focusDeny && ht(t.denyButton) ? (t.denyButton.focus(), !0) : e.focusCancel && ht(t.cancelButton) ? (t.cancelButton.focus(), !0) : !(!e.focusConfirm || !ht(t.confirmButton)) && (t.confirmButton.focus(), !0)
         },
-        no = function (t, e) {
-            return e.focusDeny && vt(t.denyButton) ? (t.denyButton.focus(), !0) : e.focusCancel && vt(t.cancelButton) ? (t.cancelButton.focus(), !0) : !(!e.focusConfirm || !vt(t.confirmButton)) && (t.confirmButton.focus(), !0)
-        },
-        oo = function () {
+        no = function () {
             document.activeElement instanceof HTMLElement && "function" == typeof document.activeElement.blur && document.activeElement.blur()
         };
-    Jn.prototype.disableButtons = Ze, Jn.prototype.enableButtons = Ye, Jn.prototype.getInput = ze, Jn.prototype.disableInput = Je, Jn.prototype.enableInput = $e, Jn.prototype.hideLoading = Fe, Jn.prototype.disableLoading = Fe, Jn.prototype.showValidationMessage = Xe, Jn.prototype.resetValidationMessage = Ge, Jn.prototype.close = be, Jn.prototype.closePopup = be, Jn.prototype.closeModal = be, Jn.prototype.closeToast = be, Jn.prototype.rejectPromise = we, Jn.prototype.update = ln, Jn.prototype._destroy = fn, Object.assign(Jn, On), Object.keys(vn).forEach((function (t) {
-        Jn[t] = function () {
+    $n.prototype.disableButtons = Ye, $n.prototype.enableButtons = Ke, $n.prototype.getInput = Ue, $n.prototype.disableInput = $e, $n.prototype.enableInput = Ze, $n.prototype.hideLoading = Ne, $n.prototype.disableLoading = Ne, $n.prototype.showValidationMessage = Je, $n.prototype.resetValidationMessage = Xe, $n.prototype.close = ge, $n.prototype.closePopup = ge, $n.prototype.closeModal = ge, $n.prototype.closeToast = ge, $n.prototype.rejectPromise = ye, $n.prototype.update = sn, $n.prototype._destroy = dn, Object.assign($n, Sn), Object.keys(hn).forEach((function (t) {
+        $n[t] = function () {
             var e;
-            return xn && xn[t] ? (e = xn)[t].apply(e, arguments) : null
+            return Tn && Tn[t] ? (e = Tn)[t].apply(e, arguments) : null
         }
-    })), Jn.DismissReason = Gt, Jn.version = "11.10.3";
-    var ao = Jn;
-    return ao.default = ao, ao
+    })), $n.DismissReason = Xt, $n.version = "11.10.4";
+    var ro = $n;
+    return ro.default = ro, ro
 })), void 0 !== this && this.Sweetalert2 && (this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2);

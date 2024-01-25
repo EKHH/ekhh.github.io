@@ -90,6 +90,11 @@ planckTime    <br />
 planckCharge    <br />
 planckTemperature    <br />
 
+## License
+
+Distributed under the MIT License. See `LICENSE.md` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!---
 <details>
@@ -231,11 +236,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## License
-
-Distributed under the MIT License. See `LICENSE.md` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
 
